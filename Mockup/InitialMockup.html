@@ -1,514 +1,1388 @@
 <!doctype html>
 <html lang="en" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>India Paths</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-  <style>
-    html, body { height: 100%; margin: 0; }
-    .font-display { font-family: 'DM Serif Display', serif; }
-    .font-body { font-family: 'Outfit', sans-serif; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.92); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    .anim-fade-up { animation: fadeUp 0.8s ease forwards; }
-    .anim-fade-up-d1 { animation: fadeUp 0.8s 0.15s ease forwards; opacity: 0; }
-    .anim-fade-up-d2 { animation: fadeUp 0.8s 0.3s ease forwards; opacity: 0; }
-    .anim-fade-up-d3 { animation: fadeUp 0.8s 0.45s ease forwards; opacity: 0; }
-    .anim-scale-in { animation: scaleIn 0.6s ease forwards; }
-
-    .trek-card:hover .trek-overlay { opacity: 1; }
-    .trek-card:hover .trek-img { transform: scale(1.08); }
-    .service-card:hover { transform: translateY(-6px); }
-
-    .hero-pattern {
-      background-image:
-        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.04) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.03) 0%, transparent 40%),
-        linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-    }
-
-    .mountain-silhouette {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 120px;
-      overflow: hidden;
-    }
-    .mountain-silhouette svg { width: 100%; height: 100%; }
-
-    .nav-link { position: relative; }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0;
-      width: 0; height: 2px;
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after { width: 100%; }
-
-    .scroll-smooth { scroll-behavior: smooth; }
-  </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full font-body scroll-smooth" style="overflow-x: hidden;">
-  <div id="app-wrapper" class="w-full h-full overflow-auto" style="background: #f7f5f0;"><!-- Navigation -->
-   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: transparent;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="flex items-center justify-between h-16 sm:h-20"><a href="#hero" class="flex items-center gap-2">
-       <svg width="36" height="36" viewbox="0 0 36 36" fill="none"><path d="M18 4L6 28h24L18 4z" fill="#d4a855" opacity="0.8" /> <path d="M18 10L10 28h16L18 10z" fill="#2c5364" /> <path d="M14 28l4-8 4 8" fill="#d4a855" opacity="0.6" />
-       </svg><span id="nav-brand" class="font-display text-xl sm:text-2xl text-white">India Paths</span> </a> <!-- Desktop Nav -->
-      <div class="hidden md:flex items-center gap-8"><a href="#treks" class="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors" style="--underline-color: #d4a855;">Treks</a> <a href="#wfh" class="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors">Work Retreats</a> <a href="#homestays" class="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors">Homestays</a> <a href="#cta" id="nav-cta-btn" class="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105" style="background: #d4a855; color: #0f2027;">Book Now</a>
-      </div><!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden text-white p-2" aria-label="Toggle menu"> <i data-lucide="menu" style="width:24px;height:24px;"></i> </button>
-     </div>
-    </div><!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4 px-4" style="background: rgba(15,32,39,0.97);"><a href="#treks" class="block py-3 text-white/80 hover:text-white text-sm font-medium border-b border-white/10">Treks</a> <a href="#wfh" class="block py-3 text-white/80 hover:text-white text-sm font-medium border-b border-white/10">Work Retreats</a> <a href="#homestays" class="block py-3 text-white/80 hover:text-white text-sm font-medium border-b border-white/10">Homestays</a> <a href="#cta" class="block mt-3 text-center py-2.5 rounded-full text-sm font-semibold" style="background: #d4a855; color: #0f2027;">Book Now</a>
-    </div>
-   </nav><!-- Hero Section -->
-   <section id="hero" class="relative hero-pattern" style="min-height: 100%; display: flex; align-items: center;">
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 text-center">
-     <p class="anim-fade-up text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase mb-4" style="color: #d4a855;">Est. 2024 · Uttarakhand, India</p>
-     <h1 id="hero-title" class="anim-fade-up-d1 font-display text-5xl sm:text-7xl lg:text-8xl text-white leading-tight mb-6">Discover the Soul<br>
-      of the <span style="color: #d4a855;">Himalayas</span></h1>
-     <p id="hero-desc" class="anim-fade-up-d2 text-white/70 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">Curated treks through ancient trails, remote work retreats nestled in the mountains, and authentic homestays that bring you closer to local life.</p>
-     <div class="anim-fade-up-d3 flex flex-col sm:flex-row gap-4 justify-center"><a href="#treks" class="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg" style="background: #d4a855; color: #0f2027;"> Explore Treks </a> <a href="#wfh" class="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide border-2 border-white/30 text-white hover:border-white/60 transition-all duration-300"> View All Services </a>
-     </div>
-    </div>
-    <div class="mountain-silhouette">
-     <svg viewbox="0 0 1440 120" preserveaspectratio="none"><path d="M0,120 L0,80 Q180,20 360,60 Q540,100 720,40 Q900,0 1080,50 Q1260,90 1440,30 L1440,120 Z" fill="#f7f5f0" />
-     </svg>
-    </div>
-   </section><!-- Stats Bar -->
-   <section class="py-12 sm:py-16" style="background: #f7f5f0;">
-    <div class="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-     <div>
-      <p class="font-display text-3xl sm:text-4xl" style="color: #2c5364;">50+</p>
-      <p class="text-sm mt-1" style="color: #6b7280;">Treks Completed</p>
-     </div>
-     <div>
-      <p class="font-display text-3xl sm:text-4xl" style="color: #2c5364;">1200+</p>
-      <p class="text-sm mt-1" style="color: #6b7280;">Happy Trekkers</p>
-     </div>
-     <div>
-      <p class="font-display text-3xl sm:text-4xl" style="color: #2c5364;">15+</p>
-      <p class="text-sm mt-1" style="color: #6b7280;">Homestay Partners</p>
-     </div>
-     <div>
-      <p class="font-display text-3xl sm:text-4xl" style="color: #2c5364;">4.9</p>
-      <p class="text-sm mt-1" style="color: #6b7280;">Average Rating</p>
-     </div>
-    </div>
-   </section><!-- Treks Section -->
-   <section id="treks" class="py-16 sm:py-24" style="background: #f7f5f0;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-12 sm:mb-16">
-      <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-3" style="color: #d4a855;">Our Signature Experiences</p>
-      <h2 id="treks-heading" class="font-display text-3xl sm:text-5xl" style="color: #2c5364;">Iconic Himalayan Treks</h2>
-     </div>
-     <div class="grid md:grid-cols-3 gap-6 lg:gap-8"><!-- Kedarkantha -->
-      <div class="trek-card group rounded-2xl overflow-hidden relative cursor-pointer shadow-lg" style="height: 420px;">
-       <div class="trek-img absolute inset-0 transition-transform duration-500" style="background: linear-gradient(135deg, #1a3a4a 0%, #2c5364 40%, #3a7a6a 100%);"></div>
-       <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-       <div class="trek-overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300" style="background: rgba(15,32,39,0.6);"><span class="px-6 py-2.5 rounded-full text-sm font-semibold" style="background: #d4a855; color: #0f2027;">View Details</span>
-       </div><!-- Mountain SVG art -->
-       <svg class="absolute bottom-16 left-0 right-0 opacity-20" viewbox="0 0 400 100" preserveaspectratio="none" style="height:80px;"><path d="M0,100 L80,30 L130,60 L200,10 L270,50 L320,20 L400,70 L400,100Z" fill="white" />
-       </svg>
-       <div class="absolute bottom-0 left-0 right-0 p-6">
-        <div class="flex items-center gap-2 mb-2"><span class="px-2.5 py-1 rounded-full text-xs font-semibold" style="background: #d4a855; color: #0f2027;">Popular</span> <span class="text-white/60 text-xs">6 Days</span>
-        </div>
-        <h3 class="font-display text-2xl text-white mb-1">Kedarkantha Trek</h3>
-        <p class="text-white/60 text-sm mb-3">Summit at 12,500 ft with panoramic snow-capped views</p>
-        <div class="flex items-center justify-between">
-         <div class="flex items-center gap-1 text-white/70 text-xs"><i data-lucide="map-pin" style="width:14px;height:14px;"></i> Uttarakhand
-         </div>
-         <p class="font-semibold" style="color: #d4a855;">₹8,499</p>
-        </div>
-       </div>
-      </div><!-- Har Ki Dun -->
-      <div class="trek-card group rounded-2xl overflow-hidden relative cursor-pointer shadow-lg" style="height: 420px;">
-       <div class="trek-img absolute inset-0 transition-transform duration-500" style="background: linear-gradient(135deg, #2d4a3e 0%, #3a6b5a 40%, #4a8a6a 100%);"></div>
-       <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-       <div class="trek-overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300" style="background: rgba(15,32,39,0.6);"><span class="px-6 py-2.5 rounded-full text-sm font-semibold" style="background: #d4a855; color: #0f2027;">View Details</span>
-       </div>
-       <svg class="absolute bottom-16 left-0 right-0 opacity-20" viewbox="0 0 400 100" preserveaspectratio="none" style="height:80px;"><path d="M0,100 L60,40 L150,70 L220,15 L300,55 L370,25 L400,60 L400,100Z" fill="white" />
-       </svg>
-       <div class="absolute bottom-0 left-0 right-0 p-6">
-        <div class="flex items-center gap-2 mb-2"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-white/20 text-white">Scenic</span> <span class="text-white/60 text-xs">7 Days</span>
-        </div>
-        <h3 class="font-display text-2xl text-white mb-1">Har Ki Dun Trek</h3>
-        <p class="text-white/60 text-sm mb-3">The cradle-shaped valley of ancient mythology</p>
-        <div class="flex items-center justify-between">
-         <div class="flex items-center gap-1 text-white/70 text-xs"><i data-lucide="map-pin" style="width:14px;height:14px;"></i> Govind Pashu Vihar
-         </div>
-         <p class="font-semibold" style="color: #d4a855;">₹9,999</p>
-        </div>
-       </div>
-      </div><!-- Brahmatal -->
-      <div class="trek-card group rounded-2xl overflow-hidden relative cursor-pointer shadow-lg" style="height: 420px;">
-       <div class="trek-img absolute inset-0 transition-transform duration-500" style="background: linear-gradient(135deg, #1f3044 0%, #2a5070 40%, #3a6a8a 100%);"></div>
-       <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-       <div class="trek-overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300" style="background: rgba(15,32,39,0.6);"><span class="px-6 py-2.5 rounded-full text-sm font-semibold" style="background: #d4a855; color: #0f2027;">View Details</span>
-       </div>
-       <svg class="absolute bottom-16 left-0 right-0 opacity-20" viewbox="0 0 400 100" preserveaspectratio="none" style="height:80px;"><path d="M0,100 L100,35 L170,65 L240,20 L310,50 L400,30 L400,100Z" fill="white" />
-       </svg>
-       <div class="absolute bottom-0 left-0 right-0 p-6">
-        <div class="flex items-center gap-2 mb-2"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-white/20 text-white">Winter</span> <span class="text-white/60 text-xs">5 Days</span>
-        </div>
-        <h3 class="font-display text-2xl text-white mb-1">Brahmatal Trek</h3>
-        <p class="text-white/60 text-sm mb-3">Frozen lakes and views of Trishul &amp; Nanda Ghunti</p>
-        <div class="flex items-center justify-between">
-         <div class="flex items-center gap-1 text-white/70 text-xs"><i data-lucide="map-pin" style="width:14px;height:14px;"></i> Chamoli
-         </div>
-         <p class="font-semibold" style="color: #d4a855;">₹7,499</p>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Work From Mountains Section -->
-   <section id="wfh" class="py-16 sm:py-24" style="background: #2c5364;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <div>
-       <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-3" style="color: #d4a855;">Remote Work, Redefined</p>
-       <h2 id="wfh-heading" class="font-display text-3xl sm:text-5xl text-white mb-6">Work From the Mountains</h2>
-       <p class="text-white/70 text-base sm:text-lg leading-relaxed mb-8">Trade your city desk for a mountain workspace. High-speed internet, ergonomic setups, and the Himalayas as your backdrop — all curated for digital professionals.</p>
-       <div class="space-y-5">
-        <div class="flex items-start gap-4">
-         <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(212,168,85,0.15);"><i data-lucide="wifi" style="width:20px;height:20px;color:#d4a855;"></i>
-         </div>
-         <div>
-          <h4 class="text-white font-semibold text-sm mb-1">High-Speed Connectivity</h4>
-          <p class="text-white/50 text-sm">Fiber-backed internet with backup connections for uninterrupted work</p>
-         </div>
-        </div>
-        <div class="flex items-start gap-4">
-         <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(212,168,85,0.15);"><i data-lucide="monitor" style="width:20px;height:20px;color:#d4a855;"></i>
-         </div>
-         <div>
-          <h4 class="text-white font-semibold text-sm mb-1">Dedicated Workspaces</h4>
-          <p class="text-white/50 text-sm">Ergonomic desks, standing options, and quiet zones for focused work</p>
-         </div>
-        </div>
-        <div class="flex items-start gap-4">
-         <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(212,168,85,0.15);"><i data-lucide="coffee" style="width:20px;height:20px;color:#d4a855;"></i>
-         </div>
-         <div>
-          <h4 class="text-white font-semibold text-sm mb-1">Community &amp; Wellness</h4>
-          <p class="text-white/50 text-sm">Morning yoga, evening bonfires, and a community of like-minded remote workers</p>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="grid grid-cols-2 gap-4">
-       <div class="rounded-2xl p-6 space-y-3" style="background: rgba(255,255,255,0.08);">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(212,168,85,0.2);"><i data-lucide="calendar" style="width:24px;height:24px;color:#d4a855;"></i>
-        </div>
-        <h4 class="text-white font-semibold">Weekly Plans</h4>
-        <p class="text-2xl font-display" style="color: #d4a855;">₹12,000</p>
-        <p class="text-white/40 text-xs">per week / person</p>
-       </div>
-       <div class="rounded-2xl p-6 space-y-3" style="background: rgba(255,255,255,0.08);">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(212,168,85,0.2);"><i data-lucide="home" style="width:24px;height:24px;color:#d4a855;"></i>
-        </div>
-        <h4 class="text-white font-semibold">Monthly Plans</h4>
-        <p class="text-2xl font-display" style="color: #d4a855;">₹35,000</p>
-        <p class="text-white/40 text-xs">per month / person</p>
-       </div>
-       <div class="col-span-2 rounded-2xl p-6 relative overflow-hidden" style="background: rgba(212,168,85,0.12);">
-        <div class="flex items-center gap-3 mb-2"><i data-lucide="users" style="width:20px;height:20px;color:#d4a855;"></i>
-         <h4 class="text-white font-semibold">Team Retreats</h4>
-        </div>
-        <p class="text-white/60 text-sm">Custom packages for teams of 5–30. Strategy sessions with mountain views.</p><a href="#cta" class="inline-block mt-3 text-sm font-semibold hover:underline" style="color: #d4a855;">Get a Quote →</a>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Homestays Section -->
-   <section id="homestays" class="py-16 sm:py-24" style="background: #f7f5f0;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-12 sm:mb-16">
-      <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-3" style="color: #d4a855;">Live Like a Local</p>
-      <h2 id="homestay-heading" class="font-display text-3xl sm:text-5xl" style="color: #2c5364;">Authentic Homestays</h2>
-     </div>
-     <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-      <div class="service-card rounded-2xl overflow-hidden shadow-md transition-all duration-300 bg-white">
-       <div class="h-48 relative" style="background: linear-gradient(135deg, #3a6b5a, #5a9a7a);">
-        <svg class="absolute bottom-0 left-0 right-0" viewbox="0 0 300 40" preserveaspectratio="none" style="height:40px;"><path d="M0,40 L0,25 Q75,0 150,20 Q225,35 300,10 L300,40Z" fill="white" />
-        </svg>
-        <div class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold" style="background: #d4a855; color: #0f2027;">
-         From ₹2,500/night
-        </div>
-       </div>
-       <div class="p-6">
-        <h3 class="font-display text-xl mb-2" style="color: #2c5364;">Village Heritage Homes</h3>
-        <p class="text-sm leading-relaxed mb-4" style="color: #6b7280;">Traditional stone-and-wood homes in remote Garhwal villages. Wake to birdsong and home-cooked pahadi meals.</p>
-        <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-medium" style="background: #2c5364; color: white; opacity: 0.8;">Home-cooked meals</span> <span class="px-3 py-1 rounded-full text-xs font-medium" style="background: #2c5364; color: white; opacity: 0.8;">Cultural tours</span>
-        </div>
-       </div>
-      </div>
-      <div class="service-card rounded-2xl overflow-hidden shadow-md transition-all duration-300 bg-white">
-       <div class="h-48 relative" style="background: linear-gradient(135deg, #2a5070, #4a8ab0);">
-        <svg class="absolute bottom-0 left-0 right-0" viewbox="0 0 300 40" preserveaspectratio="none" style="height:40px;"><path d="M0,40 L0,20 Q100,5 200,25 Q250,32 300,15 L300,40Z" fill="white" />
-        </svg>
-        <div class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold" style="background: #d4a855; color: #0f2027;">
-         From ₹3,200/night
-        </div>
-       </div>
-       <div class="p-6">
-        <h3 class="font-display text-xl mb-2" style="color: #2c5364;">Riverside Cottages</h3>
-        <p class="text-sm leading-relaxed mb-4" style="color: #6b7280;">Cozy cottages along the Tons river valley. Perfect for couples and families seeking tranquility.</p>
-        <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-medium" style="background: #2c5364; color: white; opacity: 0.8;">River access</span> <span class="px-3 py-1 rounded-full text-xs font-medium" style="background: #2c5364; color: white; opacity: 0.8;">Bonfire nights</span>
-        </div>
-       </div>
-      </div>
-      <div class="service-card rounded-2xl overflow-hidden shadow-md transition-all duration-300 bg-white">
-       <div class="h-48 relative" style="background: linear-gradient(135deg, #4a3a2a, #7a6a4a);">
-        <svg class="absolute bottom-0 left-0 right-0" viewbox="0 0 300 40" preserveaspectratio="none" style="height:40px;"><path d="M0,40 L0,30 Q60,5 150,22 Q240,38 300,12 L300,40Z" fill="white" />
-        </svg>
-        <div class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold" style="background: #d4a855; color: #0f2027;">
-         From ₹4,000/night
-        </div>
-       </div>
-       <div class="p-6">
-        <h3 class="font-display text-xl mb-2" style="color: #2c5364;">Mountain View Cabins</h3>
-        <p class="text-sm leading-relaxed mb-4" style="color: #6b7280;">Premium wooden cabins with panoramic Himalayan views. Modern comforts meet mountain charm.</p>
-        <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-medium" style="background: #2c5364; color: white; opacity: 0.8;">Panoramic views</span> <span class="px-3 py-1 rounded-full text-xs font-medium" style="background: #2c5364; color: white; opacity: 0.8;">Modern amenities</span>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Testimonials -->
-   <section class="py-16 sm:py-24" style="background: #eae6df;">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-12">
-      <p class="text-xs font-semibold tracking-[0.25em] uppercase mb-3" style="color: #d4a855;">What Travelers Say</p>
-      <h2 class="font-display text-3xl sm:text-4xl" style="color: #2c5364;">Stories from the Trail</h2>
-     </div>
-     <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
-       <div class="flex gap-1 mb-4"><i data-lucide="star" style="width:16px;height:16px;color:#d4a855;fill:#d4a855;"></i> <i data-lucide="star" style="width:16px;height:16px;color:#d4a855;fill:#d4a855;"></i> <i data-lucide="star" style="width:16px;height:16px;color:#d4a855;fill:#d4a855;"></i> <i data-lucide="star" style="width:16px;height:16px;color:#d4a855;fill:#d4a855;"></i> <i data-lucide="star" style="width:16px;height:16px;color:#d4a855;fill:#d4a855;"></i>
-       </div>
-       <p class="text-sm leading-relaxed mb-4" style="color: #4a5568;">"The Kedarkantha trek with India Paths was life-changing. The guides knew every trail and the camping under stars was unforgettable."</p>
-       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm" style="background: #2c5364; color: white;">
-         AP
-        </div>
-        <div>
-         <p class="font-semibold text-sm" style="color: #2c5364;">Arjun Patel</p>
-         <p class="text-xs" style="color: #9ca3af;">Kedarkantha Trek, Dec 2024</p>
-        </div>
-       </div>
-      </div>
-      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
-       <div class="flex gap-1 mb-4"><i data-lucide="star" style="width:16px;height:16px;color:#d4a855;fill:#d4a855;"></i> <i data-lucide="star" style="width:16px;height:16px;color:#d4a855;fill:#d4a855;"></i> <i data-lucide="star" style="width:16px;height:16px;color:#d4a855;fill:#d4a855;"></i> <i data-lucide="star" style="width:16px;height:16px;color:#d4a855;fill:#d4a855;"></i> <i data-lucide="star" style="width:16px;height:16px;color:#d4a855;fill:#d4a855;"></i>
-       </div>
-       <p class="text-sm leading-relaxed mb-4" style="color: #4a5568;">"Spent a month working from their mountain retreat. Best decision ever — productive days, incredible evenings, and the homestay food was amazing."</p>
-       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm" style="background: #d4a855; color: #0f2027;">
-         SM
-        </div>
-        <div>
-         <p class="font-semibold text-sm" style="color: #2c5364;">Sneha Mukherjee</p>
-         <p class="text-xs" style="color: #9ca3af;">Work Retreat, Oct 2024</p>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- CTA Section -->
-   <section id="cta" class="py-16 sm:py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
-    <div class="absolute inset-0 opacity-10">
-     <svg width="100%" height="100%" viewbox="0 0 800 400" preserveaspectratio="none"><path d="M0,400 L0,300 Q200,200 400,280 Q600,360 800,250 L800,400Z" fill="white" /> <path d="M0,400 L0,350 Q300,250 500,320 Q700,380 800,300 L800,400Z" fill="white" opacity="0.5" />
-     </svg>
-    </div>
-    <div class="relative z-10 max-w-3xl mx-auto px-4 text-center">
-     <h2 id="cta-heading" class="font-display text-3xl sm:text-5xl text-white mb-6">Ready for Your Next Adventure?</h2>
-     <p class="text-white/60 text-base sm:text-lg mb-8">Whether it's a Himalayan summit, a remote work stint, or a quiet homestay — your journey starts here.</p>
-     <div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="mailto:hello@indiapaths.com" id="cta-button" class="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center justify-center gap-2" style="background: #d4a855; color: #0f2027;"> <i data-lucide="mail" style="width:18px;height:18px;"></i> <span id="cta-btn-text">Plan Your Trip</span> </a> <a href="tel:+919876543210" class="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide border-2 border-white/30 text-white hover:border-white/60 transition-all duration-300 inline-flex items-center justify-center gap-2"> <i data-lucide="phone" style="width:18px;height:18px;"></i> Call Us </a>
-     </div>
-    </div>
-   </section><!-- Footer -->
-   <footer class="py-12" style="background: #0f2027;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-      <div>
-       <div class="flex items-center gap-2 mb-4">
-        <svg width="28" height="28" viewbox="0 0 36 36" fill="none"><path d="M18 4L6 28h24L18 4z" fill="#d4a855" opacity="0.8" /> <path d="M18 10L10 28h16L18 10z" fill="#2c5364" />
-        </svg><span class="font-display text-lg text-white">India Paths</span>
-       </div>
-       <p class="text-white/40 text-sm leading-relaxed">Curating authentic Himalayan experiences since 2024. Based in Uttarakhand, India.</p>
-      </div>
-      <div>
-       <h4 class="font-semibold text-white text-sm mb-4">Services</h4>
-       <ul class="space-y-2 text-white/40 text-sm">
-        <li><a href="#treks" class="hover:text-white/70 transition-colors">Himalayan Treks</a></li>
-        <li><a href="#wfh" class="hover:text-white/70 transition-colors">Work Retreats</a></li>
-        <li><a href="#homestays" class="hover:text-white/70 transition-colors">Homestays</a></li>
-       </ul>
-      </div>
-      <div>
-       <h4 class="font-semibold text-white text-sm mb-4">Popular Treks</h4>
-       <ul class="space-y-2 text-white/40 text-sm">
-        <li>Kedarkantha</li>
-        <li>Har Ki Dun</li>
-        <li>Brahmatal</li>
-       </ul>
-      </div>
-      <div>
-       <h4 class="font-semibold text-white text-sm mb-4">Contact</h4>
-       <ul class="space-y-2 text-white/40 text-sm">
-        <li class="flex items-center gap-2"><i data-lucide="mail" style="width:14px;height:14px;"></i> hello@indiapaths.com</li>
-        <li class="flex items-center gap-2"><i data-lucide="phone" style="width:14px;height:14px;"></i> +91 98765 43210</li>
-        <li class="flex items-center gap-2"><i data-lucide="map-pin" style="width:14px;height:14px;"></i> Dehradun, Uttarakhand</li>
-       </ul>
-      </div>
-     </div>
-     <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-white/30 text-xs">© 2025 India Paths. All rights reserved.</p>
-      <div class="flex gap-4"><a href="#" class="text-white/30 hover:text-white/60 transition-colors"><i data-lucide="instagram" style="width:18px;height:18px;"></i></a> <a href="#" class="text-white/30 hover:text-white/60 transition-colors"><i data-lucide="facebook" style="width:18px;height:18px;"></i></a> <a href="#" class="text-white/30 hover:text-white/60 transition-colors"><i data-lucide="youtube" style="width:18px;height:18px;"></i></a>
-      </div>
-     </div>
-    </div>
-   </footer>
-  </div>
-  <script>
-    // Initialize Lucide icons
-    lucide.createIcons();
-
-    // Default config
-    const defaultConfig = {
-      background_color: '#f7f5f0',
-      surface_color: '#2c5364',
-      text_color: '#0f2027',
-      primary_action_color: '#d4a855',
-      secondary_action_color: '#ffffff',
-      font_family: 'Outfit',
-      font_size: 16,
-      hero_title: 'Discover the Soul of the Himalayas',
-      hero_description: 'Curated treks through ancient trails, remote work retreats nestled in the mountains, and authentic homestays that bring you closer to local life.',
-      treks_heading: 'Iconic Himalayan Treks',
-      wfh_heading: 'Work From the Mountains',
-      homestay_heading: 'Authentic Homestays',
-      cta_heading: 'Ready for Your Next Adventure?',
-      cta_button_text: 'Plan Your Trip'
-    };
-
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    let menuOpen = false;
-    menuBtn.addEventListener('click', () => {
-      menuOpen = !menuOpen;
-      mobileMenu.classList.toggle('hidden', !menuOpen);
-    });
-    // Close mobile menu on link click
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuOpen = false;
-        mobileMenu.classList.add('hidden');
-      });
-    });
-
-    // Navbar scroll effect
-    const nav = document.getElementById('main-nav');
-    const wrapper = document.getElementById('app-wrapper');
-    wrapper.addEventListener('scroll', () => {
-      if (wrapper.scrollTop > 60) {
-        nav.style.background = 'rgba(15,32,39,0.95)';
-        nav.style.backdropFilter = 'blur(10px)';
-        nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
-      } else {
-        nav.style.background = 'transparent';
-        nav.style.backdropFilter = 'none';
-        nav.style.boxShadow = 'none';
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>India Paths</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Outfit:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
       }
-    });
+      .font-display {
+        font-family: "DM Serif Display", serif;
+      }
+      .font-body {
+        font-family: "Outfit", sans-serif;
+      }
 
-    // onConfigChange - updates all editable elements
-    function applyConfig(config) {
-      const c = { ...defaultConfig, ...config };
-      const font = c.font_family || defaultConfig.font_family;
-      const baseSize = c.font_size || defaultConfig.font_size;
-      const baseFontStack = 'Outfit, sans-serif';
-      const displayStack = 'DM Serif Display, serif';
-
-      // Apply font to body
-      document.body.style.fontFamily = `${font}, ${baseFontStack}`;
-
-      // Hero
-      const heroTitle = document.getElementById('hero-title');
-      heroTitle.innerHTML = c.hero_title.replace('Himalayas', '<span style="color: #d4a855;">Himalayas</span>').replace('\n', '<br>');
-      heroTitle.style.fontFamily = `${font}, ${displayStack}`;
-      heroTitle.style.fontSize = `${baseSize * 3.5}px`;
-
-      document.getElementById('hero-desc').textContent = c.hero_description;
-
-      // Section headings
-      const treksH = document.getElementById('treks-heading');
-      treksH.textContent = c.treks_heading;
-      treksH.style.fontFamily = `${font}, ${displayStack}`;
-
-      const wfhH = document.getElementById('wfh-heading');
-      wfhH.textContent = c.wfh_heading;
-      wfhH.style.fontFamily = `${font}, ${displayStack}`;
-
-      const homestayH = document.getElementById('homestay-heading');
-      homestayH.textContent = c.homestay_heading;
-      homestayH.style.fontFamily = `${font}, ${displayStack}`;
-
-      const ctaH = document.getElementById('cta-heading');
-      ctaH.textContent = c.cta_heading;
-      ctaH.style.fontFamily = `${font}, ${displayStack}`;
-
-      document.getElementById('cta-btn-text').textContent = c.cta_button_text;
-    }
-
-    // Initialize Element SDK
-    window.elementSdk.init({
-      defaultConfig,
-      onConfigChange: async (config) => {
-        applyConfig(config);
-      },
-      mapToCapabilities: (config) => ({
-        recolorables: [
-          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
-          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
-          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
-          { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
-          { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
-        ],
-        borderables: [],
-        fontEditable: {
-          get: () => config.font_family || defaultConfig.font_family,
-          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
-        },
-        fontSizeable: {
-          get: () => config.font_size || defaultConfig.font_size,
-          set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
         }
-      }),
-      mapToEditPanelValues: (config) => new Map([
-        ['hero_title', config.hero_title || defaultConfig.hero_title],
-        ['hero_description', config.hero_description || defaultConfig.hero_description],
-        ['treks_heading', config.treks_heading || defaultConfig.treks_heading],
-        ['wfh_heading', config.wfh_heading || defaultConfig.wfh_heading],
-        ['homestay_heading', config.homestay_heading || defaultConfig.homestay_heading],
-        ['cta_heading', config.cta_heading || defaultConfig.cta_heading],
-        ['cta_button_text', config.cta_button_text || defaultConfig.cta_button_text]
-      ])
-    });
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e81ff18f572162e',t:'MTc3NTQ5MTEzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.92);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .anim-fade-up {
+        animation: fadeUp 0.8s ease forwards;
+      }
+      .anim-fade-up-d1 {
+        animation: fadeUp 0.8s 0.15s ease forwards;
+        opacity: 0;
+      }
+      .anim-fade-up-d2 {
+        animation: fadeUp 0.8s 0.3s ease forwards;
+        opacity: 0;
+      }
+      .anim-fade-up-d3 {
+        animation: fadeUp 0.8s 0.45s ease forwards;
+        opacity: 0;
+      }
+      .anim-scale-in {
+        animation: scaleIn 0.6s ease forwards;
+      }
+
+      .trek-card:hover .trek-overlay {
+        opacity: 1;
+      }
+      .trek-card:hover .trek-img {
+        transform: scale(1.08);
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+      }
+
+      .hero-pattern {
+        background-image:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 40%
+          ),
+          linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+      }
+
+      .mountain-silhouette {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 120px;
+        overflow: hidden;
+      }
+      .mountain-silhouette svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .scroll-smooth {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full font-body scroll-smooth" style="overflow-x: hidden">
+    <div
+      id="app-wrapper"
+      class="w-full h-full overflow-auto"
+      style="background: #f7f5f0"
+    >
+      <!-- Navigation -->
+      <nav
+        id="main-nav"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        style="background: transparent"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16 sm:h-20">
+            <a href="#hero" class="flex items-center gap-2">
+              <svg width="36" height="36" viewbox="0 0 36 36" fill="none">
+                <path d="M18 4L6 28h24L18 4z" fill="#d4a855" opacity="0.8" />
+                <path d="M18 10L10 28h16L18 10z" fill="#2c5364" />
+                <path d="M14 28l4-8 4 8" fill="#d4a855" opacity="0.6" /></svg
+              ><span
+                id="nav-brand"
+                class="font-display text-xl sm:text-2xl text-white"
+                >India Paths</span
+              >
+            </a>
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+              <a
+                href="#treks"
+                class="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
+                style="--underline-color: #d4a855"
+                >Treks</a
+              >
+              <a
+                href="#wfh"
+                class="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
+                >Work Retreats</a
+              >
+              <a
+                href="#homestays"
+                class="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
+                >Homestays</a>
+              <a
+                href="#cta"
+                id="nav-cta-btn"
+                class="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
+                style="background: #d4a855; color: #0f2027"
+                >Book Now</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button
+              id="mobile-menu-btn"
+              class="md:hidden text-white p-2"
+              aria-label="Toggle menu"
+            >
+              <i data-lucide="menu" style="width: 24px; height: 24px"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden pb-4 px-4"
+          style="background: rgba(15, 32, 39, 0.97)"
+        >
+          <a
+            href="#treks"
+            class="block py-3 text-white/80 hover:text-white text-sm font-medium border-b border-white/10"
+            >Treks</a
+          >
+          <a
+            href="#wfh"
+            class="block py-3 text-white/80 hover:text-white text-sm font-medium border-b border-white/10"
+            >Work Retreats</a
+          >
+          <a
+            href="#homestays"
+            class="block py-3 text-white/80 hover:text-white text-sm font-medium border-b border-white/10"
+            >Homestays</a
+          >
+          <a
+            href="#cta"
+            class="block mt-3 text-center py-2.5 rounded-full text-sm font-semibold"
+            style="background: #d4a855; color: #0f2027"
+            >Book Now</a
+          >
+        </div>
+      </nav>
+      <!-- Hero Section -->
+      <section
+        id="hero"
+        class="relative hero-pattern"
+        style="min-height: 100%; display: flex; align-items: center"
+      >
+        <div
+          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 text-center"
+        >
+          <p
+            class="anim-fade-up text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase mb-4"
+            style="color: #d4a855"
+          >
+            Est. 2024 · Uttarakhand, India
+          </p>
+          <h1
+            id="hero-title"
+            class="anim-fade-up-d1 font-display text-5xl sm:text-7xl lg:text-8xl text-white leading-tight mb-6"
+          >
+            Discover the Soul<br />
+            of the <span style="color: #d4a855">Himalayas</span>
+          </h1>
+          <p
+            id="hero-desc"
+            class="anim-fade-up-d2 text-white/70 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
+          >
+            Curated treks through ancient trails, remote work retreats nestled
+            in the mountains, and authentic homestays that bring you closer to
+            local life.
+          </p>
+          <div
+            class="anim-fade-up-d3 flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <a
+              href="#treks"
+              class="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              style="background: #d4a855; color: #0f2027"
+            >
+              Explore Treks
+            </a>
+            <a
+              href="#wfh"
+              class="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide border-2 border-white/30 text-white hover:border-white/60 transition-all duration-300"
+            >
+              View All Services
+            </a>
+          </div>
+        </div>
+        <div class="mountain-silhouette">
+          <svg viewbox="0 0 1440 120" preserveaspectratio="none">
+            <path
+              d="M0,120 L0,80 Q180,20 360,60 Q540,100 720,40 Q900,0 1080,50 Q1260,90 1440,30 L1440,120 Z"
+              fill="#f7f5f0"
+            />
+          </svg>
+        </div>
+      </section>
+      <!-- Stats Bar -->
+      <section class="py-12 sm:py-16" style="background: #f7f5f0">
+        <div
+          class="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+        >
+          <div>
+            <p class="font-display text-3xl sm:text-4xl" style="color: #2c5364">
+              50+
+            </p>
+            <p class="text-sm mt-1" style="color: #6b7280">Treks Completed</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl sm:text-4xl" style="color: #2c5364">
+              1200+
+            </p>
+            <p class="text-sm mt-1" style="color: #6b7280">Happy Trekkers</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl sm:text-4xl" style="color: #2c5364">
+              15+
+            </p>
+            <p class="text-sm mt-1" style="color: #6b7280">Homestay Partners</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl sm:text-4xl" style="color: #2c5364">
+              4.9
+            </p>
+            <p class="text-sm mt-1" style="color: #6b7280">Average Rating</p>
+          </div>
+        </div>
+      </section>
+      <!-- Treks Section -->
+      <section id="treks" class="py-16 sm:py-24" style="background: #f7f5f0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12 sm:mb-16">
+            <p
+              class="text-xs font-semibold tracking-[0.25em] uppercase mb-3"
+              style="color: #d4a855"
+            >
+              Our Signature Experiences
+            </p>
+            <h2
+              id="treks-heading"
+              class="font-display text-3xl sm:text-5xl"
+              style="color: #2c5364"
+            >
+              Iconic Himalayan Treks
+            </h2>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Kedarkantha -->
+            <div
+              class="trek-card group rounded-2xl overflow-hidden relative cursor-pointer shadow-lg"
+              style="height: 420px"
+            >
+              <div
+                class="trek-img absolute inset-0 transition-transform duration-500"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #1a3a4a 0%,
+                    #2c5364 40%,
+                    #3a7a6a 100%
+                  );
+                "
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+              ></div>
+              <div
+                class="trek-overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+                style="background: rgba(15, 32, 39, 0.6)"
+              >
+                <span
+                  class="px-6 py-2.5 rounded-full text-sm font-semibold"
+                  style="background: #d4a855; color: #0f2027"
+                  >View Details</span
+                >
+              </div>
+              <!-- Mountain SVG art -->
+              <svg
+                class="absolute bottom-16 left-0 right-0 opacity-20"
+                viewbox="0 0 400 100"
+                preserveaspectratio="none"
+                style="height: 80px"
+              >
+                <path
+                  d="M0,100 L80,30 L130,60 L200,10 L270,50 L320,20 L400,70 L400,100Z"
+                  fill="white"
+                />
+              </svg>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <div class="flex items-center gap-2 mb-2">
+                  <span
+                    class="px-2.5 py-1 rounded-full text-xs font-semibold"
+                    style="background: #d4a855; color: #0f2027"
+                    >Popular</span
+                  >
+                  <span class="text-white/60 text-xs">6 Days</span>
+                </div>
+                <h3 class="font-display text-2xl text-white mb-1">
+                  Kedarkantha Trek
+                </h3>
+                <p class="text-white/60 text-sm mb-3">
+                  Summit at 12,500 ft with panoramic snow-capped views
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1 text-white/70 text-xs">
+                    <i
+                      data-lucide="map-pin"
+                      style="width: 14px; height: 14px"
+                    ></i>
+                    Uttarakhand
+                  </div>
+                  <p class="font-semibold" style="color: #d4a855">₹8,499</p>
+                </div>
+              </div>
+            </div>
+            <!-- Har Ki Dun -->
+            <div
+              class="trek-card group rounded-2xl overflow-hidden relative cursor-pointer shadow-lg"
+              style="height: 420px"
+            >
+              <div
+                class="trek-img absolute inset-0 transition-transform duration-500"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #2d4a3e 0%,
+                    #3a6b5a 40%,
+                    #4a8a6a 100%
+                  );
+                "
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+              ></div>
+              <div
+                class="trek-overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+                style="background: rgba(15, 32, 39, 0.6)"
+              >
+                <span
+                  class="px-6 py-2.5 rounded-full text-sm font-semibold"
+                  style="background: #d4a855; color: #0f2027"
+                  >View Details</span
+                >
+              </div>
+              <svg
+                class="absolute bottom-16 left-0 right-0 opacity-20"
+                viewbox="0 0 400 100"
+                preserveaspectratio="none"
+                style="height: 80px"
+              >
+                <path
+                  d="M0,100 L60,40 L150,70 L220,15 L300,55 L370,25 L400,60 L400,100Z"
+                  fill="white"
+                />
+              </svg>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <div class="flex items-center gap-2 mb-2">
+                  <span
+                    class="px-2.5 py-1 rounded-full text-xs font-semibold bg-white/20 text-white"
+                    >Scenic</span
+                  >
+                  <span class="text-white/60 text-xs">7 Days</span>
+                </div>
+                <h3 class="font-display text-2xl text-white mb-1">
+                  Har Ki Dun Trek
+                </h3>
+                <p class="text-white/60 text-sm mb-3">
+                  The cradle-shaped valley of ancient mythology
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1 text-white/70 text-xs">
+                    <i
+                      data-lucide="map-pin"
+                      style="width: 14px; height: 14px"
+                    ></i>
+                    Govind Pashu Vihar
+                  </div>
+                  <p class="font-semibold" style="color: #d4a855">₹9,999</p>
+                </div>
+              </div>
+            </div>
+            <!-- Brahmatal -->
+            <div
+              class="trek-card group rounded-2xl overflow-hidden relative cursor-pointer shadow-lg"
+              style="height: 420px"
+            >
+              <div
+                class="trek-img absolute inset-0 transition-transform duration-500"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #1f3044 0%,
+                    #2a5070 40%,
+                    #3a6a8a 100%
+                  );
+                "
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+              ></div>
+              <div
+                class="trek-overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+                style="background: rgba(15, 32, 39, 0.6)"
+              >
+                <span
+                  class="px-6 py-2.5 rounded-full text-sm font-semibold"
+                  style="background: #d4a855; color: #0f2027"
+                  >View Details</span
+                >
+              </div>
+              <svg
+                class="absolute bottom-16 left-0 right-0 opacity-20"
+                viewbox="0 0 400 100"
+                preserveaspectratio="none"
+                style="height: 80px"
+              >
+                <path
+                  d="M0,100 L100,35 L170,65 L240,20 L310,50 L400,30 L400,100Z"
+                  fill="white"
+                />
+              </svg>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <div class="flex items-center gap-2 mb-2">
+                  <span
+                    class="px-2.5 py-1 rounded-full text-xs font-semibold bg-white/20 text-white"
+                    >Winter</span
+                  >
+                  <span class="text-white/60 text-xs">5 Days</span>
+                </div>
+                <h3 class="font-display text-2xl text-white mb-1">
+                  Brahmatal Trek
+                </h3>
+                <p class="text-white/60 text-sm mb-3">
+                  Frozen lakes and views of Trishul &amp; Nanda Ghunti
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1 text-white/70 text-xs">
+                    <i
+                      data-lucide="map-pin"
+                      style="width: 14px; height: 14px"
+                    ></i>
+                    Chamoli
+                  </div>
+                  <p class="font-semibold" style="color: #d4a855">₹7,499</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Work From Mountains Section -->
+      <section id="wfh" class="py-16 sm:py-24" style="background: #2c5364">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <p
+                class="text-xs font-semibold tracking-[0.25em] uppercase mb-3"
+                style="color: #d4a855"
+              >
+                Remote Work, Redefined
+              </p>
+              <h2
+                id="wfh-heading"
+                class="font-display text-3xl sm:text-5xl text-white mb-6"
+              >
+                Work From the Mountains
+              </h2>
+              <p
+                class="text-white/70 text-base sm:text-lg leading-relaxed mb-8"
+              >
+                Trade your city desk for a mountain workspace. High-speed
+                internet, ergonomic setups, and the Himalayas as your backdrop —
+                all curated for digital professionals.
+              </p>
+              <div class="space-y-5">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style="background: rgba(212, 168, 85, 0.15)"
+                  >
+                    <i
+                      data-lucide="wifi"
+                      style="width: 20px; height: 20px; color: #d4a855"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold text-sm mb-1">
+                      High-Speed Connectivity
+                    </h4>
+                    <p class="text-white/50 text-sm">
+                      Fiber-backed internet with backup connections for
+                      uninterrupted work
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style="background: rgba(212, 168, 85, 0.15)"
+                  >
+                    <i
+                      data-lucide="monitor"
+                      style="width: 20px; height: 20px; color: #d4a855"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold text-sm mb-1">
+                      Dedicated Workspaces
+                    </h4>
+                    <p class="text-white/50 text-sm">
+                      Ergonomic desks, standing options, and quiet zones for
+                      focused work
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style="background: rgba(212, 168, 85, 0.15)"
+                  >
+                    <i
+                      data-lucide="coffee"
+                      style="width: 20px; height: 20px; color: #d4a855"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold text-sm mb-1">
+                      Community &amp; Wellness
+                    </h4>
+                    <p class="text-white/50 text-sm">
+                      Morning yoga, evening bonfires, and a community of
+                      like-minded remote workers
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div
+                class="rounded-2xl p-6 space-y-3"
+                style="background: rgba(255, 255, 255, 0.08)"
+              >
+                <div
+                  class="w-12 h-12 rounded-xl flex items-center justify-center"
+                  style="background: rgba(212, 168, 85, 0.2)"
+                >
+                  <i
+                    data-lucide="calendar"
+                    style="width: 24px; height: 24px; color: #d4a855"
+                  ></i>
+                </div>
+                <h4 class="text-white font-semibold">Weekly Plans</h4>
+                <p class="text-2xl font-display" style="color: #d4a855">
+                  ₹12,000
+                </p>
+                <p class="text-white/40 text-xs">per week / person</p>
+              </div>
+              <div
+                class="rounded-2xl p-6 space-y-3"
+                style="background: rgba(255, 255, 255, 0.08)"
+              >
+                <div
+                  class="w-12 h-12 rounded-xl flex items-center justify-center"
+                  style="background: rgba(212, 168, 85, 0.2)"
+                >
+                  <i
+                    data-lucide="home"
+                    style="width: 24px; height: 24px; color: #d4a855"
+                  ></i>
+                </div>
+                <h4 class="text-white font-semibold">Monthly Plans</h4>
+                <p class="text-2xl font-display" style="color: #d4a855">
+                  ₹35,000
+                </p>
+                <p class="text-white/40 text-xs">per month / person</p>
+              </div>
+              <div
+                class="col-span-2 rounded-2xl p-6 relative overflow-hidden"
+                style="background: rgba(212, 168, 85, 0.12)"
+              >
+                <div class="flex items-center gap-3 mb-2">
+                  <i
+                    data-lucide="users"
+                    style="width: 20px; height: 20px; color: #d4a855"
+                  ></i>
+                  <h4 class="text-white font-semibold">Team Retreats</h4>
+                </div>
+                <p class="text-white/60 text-sm">
+                  Custom packages for teams of 5–30. Strategy sessions with
+                  mountain views.
+                </p>
+                <a
+                  href="#cta"
+                  class="inline-block mt-3 text-sm font-semibold hover:underline"
+                  style="color: #d4a855"
+                  >Get a Quote →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Homestays Section -->
+      <section
+        id="homestays"
+        class="py-16 sm:py-24"
+        style="background: #f7f5f0"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12 sm:mb-16">
+            <p
+              class="text-xs font-semibold tracking-[0.25em] uppercase mb-3"
+              style="color: #d4a855"
+            >
+              Live Like a Local
+            </p>
+            <h2
+              id="homestay-heading"
+              class="font-display text-3xl sm:text-5xl"
+              style="color: #2c5364"
+            >
+              Authentic Homestays
+            </h2>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+            <div
+              class="service-card rounded-2xl overflow-hidden shadow-md transition-all duration-300 bg-white"
+            >
+              <div
+                class="h-48 relative"
+                style="background: linear-gradient(135deg, #3a6b5a, #5a9a7a)"
+              >
+                <svg
+                  class="absolute bottom-0 left-0 right-0"
+                  viewbox="0 0 300 40"
+                  preserveaspectratio="none"
+                  style="height: 40px"
+                >
+                  <path
+                    d="M0,40 L0,25 Q75,0 150,20 Q225,35 300,10 L300,40Z"
+                    fill="white"
+                  />
+                </svg>
+                <div
+                  class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold"
+                  style="background: #d4a855; color: #0f2027"
+                >
+                  From ₹2,500/night
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="font-display text-xl mb-2" style="color: #2c5364">
+                  Village Heritage Homes
+                </h3>
+                <p class="text-sm leading-relaxed mb-4" style="color: #6b7280">
+                  Traditional stone-and-wood homes in remote Garhwal villages.
+                  Wake to birdsong and home-cooked pahadi meals.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-medium"
+                    style="background: #2c5364; color: white; opacity: 0.8"
+                    >Home-cooked meals</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-medium"
+                    style="background: #2c5364; color: white; opacity: 0.8"
+                    >Cultural tours</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="service-card rounded-2xl overflow-hidden shadow-md transition-all duration-300 bg-white"
+            >
+              <div
+                class="h-48 relative"
+                style="background: linear-gradient(135deg, #2a5070, #4a8ab0)"
+              >
+                <svg
+                  class="absolute bottom-0 left-0 right-0"
+                  viewbox="0 0 300 40"
+                  preserveaspectratio="none"
+                  style="height: 40px"
+                >
+                  <path
+                    d="M0,40 L0,20 Q100,5 200,25 Q250,32 300,15 L300,40Z"
+                    fill="white"
+                  />
+                </svg>
+                <div
+                  class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold"
+                  style="background: #d4a855; color: #0f2027"
+                >
+                  From ₹3,200/night
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="font-display text-xl mb-2" style="color: #2c5364">
+                  Riverside Cottages
+                </h3>
+                <p class="text-sm leading-relaxed mb-4" style="color: #6b7280">
+                  Cozy cottages along the Tons river valley. Perfect for couples
+                  and families seeking tranquility.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-medium"
+                    style="background: #2c5364; color: white; opacity: 0.8"
+                    >River access</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-medium"
+                    style="background: #2c5364; color: white; opacity: 0.8"
+                    >Bonfire nights</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="service-card rounded-2xl overflow-hidden shadow-md transition-all duration-300 bg-white"
+            >
+              <div
+                class="h-48 relative"
+                style="background: linear-gradient(135deg, #4a3a2a, #7a6a4a)"
+              >
+                <svg
+                  class="absolute bottom-0 left-0 right-0"
+                  viewbox="0 0 300 40"
+                  preserveaspectratio="none"
+                  style="height: 40px"
+                >
+                  <path
+                    d="M0,40 L0,30 Q60,5 150,22 Q240,38 300,12 L300,40Z"
+                    fill="white"
+                  />
+                </svg>
+                <div
+                  class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold"
+                  style="background: #d4a855; color: #0f2027"
+                >
+                  From ₹4,000/night
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="font-display text-xl mb-2" style="color: #2c5364">
+                  Mountain View Cabins
+                </h3>
+                <p class="text-sm leading-relaxed mb-4" style="color: #6b7280">
+                  Premium wooden cabins with panoramic Himalayan views. Modern
+                  comforts meet mountain charm.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-medium"
+                    style="background: #2c5364; color: white; opacity: 0.8"
+                    >Panoramic views</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-medium"
+                    style="background: #2c5364; color: white; opacity: 0.8"
+                    >Modern amenities</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Testimonials -->
+      <section class="py-16 sm:py-24" style="background: #eae6df">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <p
+              class="text-xs font-semibold tracking-[0.25em] uppercase mb-3"
+              style="color: #d4a855"
+            >
+              What Travelers Say
+            </p>
+            <h2
+              class="font-display text-3xl sm:text-4xl"
+              style="color: #2c5364"
+            >
+              Stories from the Trail
+            </h2>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
+              <div class="flex gap-1 mb-4">
+                <i
+                  data-lucide="star"
+                  style="
+                    width: 16px;
+                    height: 16px;
+                    color: #d4a855;
+                    fill: #d4a855;
+                  "
+                ></i>
+                <i
+                  data-lucide="star"
+                  style="
+                    width: 16px;
+                    height: 16px;
+                    color: #d4a855;
+                    fill: #d4a855;
+                  "
+                ></i>
+                <i
+                  data-lucide="star"
+                  style="
+                    width: 16px;
+                    height: 16px;
+                    color: #d4a855;
+                    fill: #d4a855;
+                  "
+                ></i>
+                <i
+                  data-lucide="star"
+                  style="
+                    width: 16px;
+                    height: 16px;
+                    color: #d4a855;
+                    fill: #d4a855;
+                  "
+                ></i>
+                <i
+                  data-lucide="star"
+                  style="
+                    width: 16px;
+                    height: 16px;
+                    color: #d4a855;
+                    fill: #d4a855;
+                  "
+                ></i>
+              </div>
+              <p class="text-sm leading-relaxed mb-4" style="color: #4a5568">
+                "The Kedarkantha trek with India Paths was life-changing. The
+                guides knew every trail and the camping under stars was
+                unforgettable."
+              </p>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm"
+                  style="background: #2c5364; color: white"
+                >
+                  AP
+                </div>
+                <div>
+                  <p class="font-semibold text-sm" style="color: #2c5364">
+                    Arjun Patel
+                  </p>
+                  <p class="text-xs" style="color: #9ca3af">
+                    Kedarkantha Trek, Dec 2024
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
+              <div class="flex gap-1 mb-4">
+                <i
+                  data-lucide="star"
+                  style="
+                    width: 16px;
+                    height: 16px;
+                    color: #d4a855;
+                    fill: #d4a855;
+                  "
+                ></i>
+                <i
+                  data-lucide="star"
+                  style="
+                    width: 16px;
+                    height: 16px;
+                    color: #d4a855;
+                    fill: #d4a855;
+                  "
+                ></i>
+                <i
+                  data-lucide="star"
+                  style="
+                    width: 16px;
+                    height: 16px;
+                    color: #d4a855;
+                    fill: #d4a855;
+                  "
+                ></i>
+                <i
+                  data-lucide="star"
+                  style="
+                    width: 16px;
+                    height: 16px;
+                    color: #d4a855;
+                    fill: #d4a855;
+                  "
+                ></i>
+                <i
+                  data-lucide="star"
+                  style="
+                    width: 16px;
+                    height: 16px;
+                    color: #d4a855;
+                    fill: #d4a855;
+                  "
+                ></i>
+              </div>
+              <p class="text-sm leading-relaxed mb-4" style="color: #4a5568">
+                "Spent a month working from their mountain retreat. Best
+                decision ever — productive days, incredible evenings, and the
+                homestay food was amazing."
+              </p>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm"
+                  style="background: #d4a855; color: #0f2027"
+                >
+                  SM
+                </div>
+                <div>
+                  <p class="font-semibold text-sm" style="color: #2c5364">
+                    Sneha Mukherjee
+                  </p>
+                  <p class="text-xs" style="color: #9ca3af">
+                    Work Retreat, Oct 2024
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CTA Section -->
+      <section
+        id="cta"
+        class="py-16 sm:py-24 relative overflow-hidden"
+        style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364)"
+      >
+        <div class="absolute inset-0 opacity-10">
+          <svg
+            width="100%"
+            height="100%"
+            viewbox="0 0 800 400"
+            preserveaspectratio="none"
+          >
+            <path
+              d="M0,400 L0,300 Q200,200 400,280 Q600,360 800,250 L800,400Z"
+              fill="white"
+            />
+            <path
+              d="M0,400 L0,350 Q300,250 500,320 Q700,380 800,300 L800,400Z"
+              fill="white"
+              opacity="0.5"
+            />
+          </svg>
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto px-4 text-center">
+          <h2
+            id="cta-heading"
+            class="font-display text-3xl sm:text-5xl text-white mb-6"
+          >
+            Ready for Your Next Adventure?
+          </h2>
+          <p class="text-white/60 text-base sm:text-lg mb-8">
+            Whether it's a Himalayan summit, a remote work stint, or a quiet
+            homestay — your journey starts here.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="mailto:hello@indiapaths.com"
+              id="cta-button"
+              class="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center justify-center gap-2"
+              style="background: #d4a855; color: #0f2027"
+            >
+              <i data-lucide="mail" style="width: 18px; height: 18px"></i>
+              <span id="cta-btn-text">Plan Your Trip</span>
+            </a>
+            <a
+              href="tel:+919876543210"
+              class="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide border-2 border-white/30 text-white hover:border-white/60 transition-all duration-300 inline-flex items-center justify-center gap-2"
+            >
+              <i data-lucide="phone" style="width: 18px; height: 18px"></i> Call
+              Us
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer class="py-12" style="background: #0f2027">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg width="28" height="28" viewbox="0 0 36 36" fill="none">
+                  <path d="M18 4L6 28h24L18 4z" fill="#d4a855" opacity="0.8" />
+                  <path d="M18 10L10 28h16L18 10z" fill="#2c5364" /></svg
+                ><span class="font-display text-lg text-white"
+                  >India Paths</span
+                >
+              </div>
+              <p class="text-white/40 text-sm leading-relaxed">
+                Curating authentic Himalayan experiences since 2024. Based in
+                Uttarakhand, India.
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-white text-sm mb-4">Services</h4>
+              <ul class="space-y-2 text-white/40 text-sm">
+                <li>
+                  <a href="#treks" class="hover:text-white/70 transition-colors"
+                    >Himalayan Treks</a
+                  >
+                </li>
+                <li>
+                  <a href="#wfh" class="hover:text-white/70 transition-colors"
+                    >Work Retreats</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#homestays"
+                    class="hover:text-white/70 transition-colors"
+                    >Homestays</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-white text-sm mb-4">
+                Popular Treks
+              </h4>
+              <ul class="space-y-2 text-white/40 text-sm">
+                <li>Kedarkantha</li>
+                <li>Har Ki Dun</li>
+                <li>Brahmatal</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-white text-sm mb-4">Contact</h4>
+              <ul class="space-y-2 text-white/40 text-sm">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="mail" style="width: 14px; height: 14px"></i>
+                  hello@indiapaths.com
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="phone" style="width: 14px; height: 14px"></i>
+                  +91 98765 43210
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="map-pin"
+                    style="width: 14px; height: 14px"
+                  ></i>
+                  Dehradun, Uttarakhand
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+          >
+            <p class="text-white/30 text-xs">
+              © 2025 India Paths. All rights reserved.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="text-white/30 hover:text-white/60 transition-colors"
+                ><i
+                  data-lucide="instagram"
+                  style="width: 18px; height: 18px"
+                ></i
+              ></a>
+              <a
+                href="#"
+                class="text-white/30 hover:text-white/60 transition-colors"
+                ><i data-lucide="facebook" style="width: 18px; height: 18px"></i
+              ></a>
+              <a
+                href="#"
+                class="text-white/30 hover:text-white/60 transition-colors"
+                ><i data-lucide="youtube" style="width: 18px; height: 18px"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Default config
+      const defaultConfig = {
+        background_color: "#f7f5f0",
+        surface_color: "#2c5364",
+        text_color: "#0f2027",
+        primary_action_color: "#d4a855",
+        secondary_action_color: "#ffffff",
+        font_family: "Outfit",
+        font_size: 16,
+        hero_title: "Discover the Soul of the Himalayas",
+        hero_description:
+          "Curated treks through ancient trails, remote work retreats nestled in the mountains, and authentic homestays that bring you closer to local life.",
+        treks_heading: "Iconic Himalayan Treks",
+        wfh_heading: "Work From the Mountains",
+        homestay_heading: "Authentic Homestays",
+        cta_heading: "Ready for Your Next Adventure?",
+        cta_button_text: "Plan Your Trip",
+      };
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      let menuOpen = false;
+      menuBtn.addEventListener("click", () => {
+        menuOpen = !menuOpen;
+        mobileMenu.classList.toggle("hidden", !menuOpen);
+      });
+      // Close mobile menu on link click
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuOpen = false;
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Navbar scroll effect
+      const nav = document.getElementById("main-nav");
+      const wrapper = document.getElementById("app-wrapper");
+      wrapper.addEventListener("scroll", () => {
+        if (wrapper.scrollTop > 60) {
+          nav.style.background = "rgba(15,32,39,0.95)";
+          nav.style.backdropFilter = "blur(10px)";
+          nav.style.boxShadow = "0 2px 20px rgba(0,0,0,0.2)";
+        } else {
+          nav.style.background = "transparent";
+          nav.style.backdropFilter = "none";
+          nav.style.boxShadow = "none";
+        }
+      });
+
+      // onConfigChange - updates all editable elements
+      function applyConfig(config) {
+        const c = { ...defaultConfig, ...config };
+        const font = c.font_family || defaultConfig.font_family;
+        const baseSize = c.font_size || defaultConfig.font_size;
+        const baseFontStack = "Outfit, sans-serif";
+        const displayStack = "DM Serif Display, serif";
+
+        // Apply font to body
+        document.body.style.fontFamily = `${font}, ${baseFontStack}`;
+
+        // Hero
+        const heroTitle = document.getElementById("hero-title");
+        heroTitle.innerHTML = c.hero_title
+          .replace(
+            "Himalayas",
+            '<span style="color: #d4a855;">Himalayas</span>',
+          )
+          .replace("\n", "<br>");
+        heroTitle.style.fontFamily = `${font}, ${displayStack}`;
+        heroTitle.style.fontSize = `${baseSize * 3.5}px`;
+
+        document.getElementById("hero-desc").textContent = c.hero_description;
+
+        // Section headings
+        const treksH = document.getElementById("treks-heading");
+        treksH.textContent = c.treks_heading;
+        treksH.style.fontFamily = `${font}, ${displayStack}`;
+
+        const wfhH = document.getElementById("wfh-heading");
+        wfhH.textContent = c.wfh_heading;
+        wfhH.style.fontFamily = `${font}, ${displayStack}`;
+
+        const homestayH = document.getElementById("homestay-heading");
+        homestayH.textContent = c.homestay_heading;
+        homestayH.style.fontFamily = `${font}, ${displayStack}`;
+
+        const ctaH = document.getElementById("cta-heading");
+        ctaH.textContent = c.cta_heading;
+        ctaH.style.fontFamily = `${font}, ${displayStack}`;
+
+        document.getElementById("cta-btn-text").textContent = c.cta_button_text;
+      }
+
+      // Initialize Element SDK
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          applyConfig(config);
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () =>
+                config.background_color || defaultConfig.background_color,
+              set: (v) => {
+                config.background_color = v;
+                window.elementSdk.setConfig({ background_color: v });
+              },
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (v) => {
+                config.surface_color = v;
+                window.elementSdk.setConfig({ surface_color: v });
+              },
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (v) => {
+                config.text_color = v;
+                window.elementSdk.setConfig({ text_color: v });
+              },
+            },
+            {
+              get: () =>
+                config.primary_action_color ||
+                defaultConfig.primary_action_color,
+              set: (v) => {
+                config.primary_action_color = v;
+                window.elementSdk.setConfig({ primary_action_color: v });
+              },
+            },
+            {
+              get: () =>
+                config.secondary_action_color ||
+                defaultConfig.secondary_action_color,
+              set: (v) => {
+                config.secondary_action_color = v;
+                window.elementSdk.setConfig({ secondary_action_color: v });
+              },
+            },
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (v) => {
+              config.font_family = v;
+              window.elementSdk.setConfig({ font_family: v });
+            },
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (v) => {
+              config.font_size = v;
+              window.elementSdk.setConfig({ font_size: v });
+            },
+          },
+        }),
+        mapToEditPanelValues: (config) =>
+          new Map([
+            ["hero_title", config.hero_title || defaultConfig.hero_title],
+            [
+              "hero_description",
+              config.hero_description || defaultConfig.hero_description,
+            ],
+            [
+              "treks_heading",
+              config.treks_heading || defaultConfig.treks_heading,
+            ],
+            ["wfh_heading", config.wfh_heading || defaultConfig.wfh_heading],
+            [
+              "homestay_heading",
+              config.homestay_heading || defaultConfig.homestay_heading,
+            ],
+            ["cta_heading", config.cta_heading || defaultConfig.cta_heading],
+            [
+              "cta_button_text",
+              config.cta_button_text || defaultConfig.cta_button_text,
+            ],
+          ]),
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9e81ff18f572162e',t:'MTc3NTQ5MTEzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
 </html>
