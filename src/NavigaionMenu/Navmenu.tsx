@@ -1,4 +1,3 @@
-import Banner from "../Banner";
 import  "./Navmenu.css";
 export default function Navmenu() {
   return (
@@ -67,7 +66,6 @@ export default function Navmenu() {
           </div>
         </div>
       </nav>
-      <Banner />
      
     </>
   );
