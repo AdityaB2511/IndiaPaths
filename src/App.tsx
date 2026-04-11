@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="w-full h-full overflow-auto" style={{ background: "#f7f5f0" }} id="app-wrapper">
       <Navmenu />
-      <BrowserRouter>
+      <BrowserRouter basename="/IndiaPaths/">
         <Routes>
            <Route path="/" element={<Homepage />} />
         </Routes>
