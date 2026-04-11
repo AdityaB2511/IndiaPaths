@@ -1,12 +1,25 @@
+import { useState, useEffect } from "react";
+
 export default function Navmenu() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <nav
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
-          background: "transparent",
-          backdropFilter: "none",
-          boxShadow: "none",
+          background: isScrolled ? "rgba(15, 32, 39, 0.95)" : "transparent",
+          backdropFilter: isScrolled ? "blur(10px)" : "none",
+          boxShadow: isScrolled ? "0 4px 12px rgba(0, 0, 0, 0.3)" : "none",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -49,12 +49,107 @@ body {
   animation: scaleIn 0.6s ease forwards;
 }
 
+/* Trek Card Responsive Variables and Classes */
+:root {
+  --trek-card-height-mobile: clamp(280px, 80vw, 320px);
+  --trek-card-height-tablet: 320px;
+  --trek-card-height-desktop: 340px;
+  --trek-card-padding-mobile: 1rem;
+  --trek-card-padding-tablet: 1.25rem;
+  --trek-card-padding-desktop: 1.5rem;
+  --trek-title-size-mobile: 1.125rem;
+  --trek-title-size-tablet: 1.25rem;
+  --trek-title-size-desktop: 1.375rem;
+  --trek-description-size-mobile: 0.75rem;
+  --trek-description-size-tablet: 0.875rem;
+  --trek-svg-height-mobile: 40px;
+  --trek-svg-height-tablet: 50px;
+  --trek-svg-height-desktop: 60px;
+}
+
+.trek-card {
+  height: var(--trek-card-height-mobile, 320px);
+  display: flex;
+  flex-direction: column;
+}
+
 .trek-card:hover .trek-overlay {
   opacity: 1;
 }
 .trek-card:hover .trek-img {
   transform: scale(1.08);
 }
+
+.trek-content {
+  padding: var(--trek-card-padding-mobile, 1rem);
+}
+
+.trek-title {
+  font-size: var(--trek-title-size-mobile, 1.125rem);
+}
+
+.trek-description {
+  font-size: var(--trek-description-size-mobile, 0.75rem);
+}
+
+.trek-svg-decoration {
+  height: var(--trek-svg-height-mobile, 40px);
+}
+
+/* Tablet Screens (640px and above) */
+@media (min-width: 640px) {
+  :root {
+    --trek-card-height-mobile: 320px;
+  }
+  
+  .trek-card {
+    height: var(--trek-card-height-tablet, 320px);
+  }
+  
+  .trek-content {
+    padding: var(--trek-card-padding-tablet, 1.25rem);
+  }
+  
+  .trek-title {
+    font-size: var(--trek-title-size-tablet, 1.25rem);
+  }
+  
+  .trek-description {
+    font-size: var(--trek-description-size-tablet, 0.875rem);
+  }
+  
+  .trek-svg-decoration {
+    height: var(--trek-svg-height-tablet, 50px);
+  }
+}
+
+/* Desktop Screens (1024px and above) */
+@media (min-width: 1024px) {
+  :root {
+    --trek-card-height-mobile: 340px;
+  }
+  
+  .trek-card {
+    height: var(--trek-card-height-desktop, 340px);
+  }
+  
+  .trek-content {
+    padding: var(--trek-card-padding-desktop, 1.5rem);
+  }
+  
+  .trek-title {
+    font-size: var(--trek-title-size-desktop, 1.375rem);
+  }
+  
+  .trek-description {
+    font-size: var(--trek-description-size-desktop, 0.875rem);
+  }
+  
+  .trek-svg-decoration {
+    height: var(--trek-svg-height-desktop, 60px);
+  }
+}
+
 .service-card:hover {
   transform: translateY(-6px);
 }
