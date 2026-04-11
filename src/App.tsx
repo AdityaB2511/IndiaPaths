@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
-import Homepage from './Homepage'
-import Navmenu from './NavigaionMenu/Navmenu'
+import './styles/App.css'
+import Homepage from './pages/Homepage'
+import Navmenu from './components/Navigation/Navmenu'
 
 function App() {
   return (
