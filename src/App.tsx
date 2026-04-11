@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './styles/App.css'
 import Homepage from './pages/Homepage'
 import Navmenu from './components/Navigation/Navmenu'
+import TrekDetails from './components/Home/Treks/TrekDetails'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <BrowserRouter basename="/IndiaPaths/">
         <Routes>
            <Route path="/" element={<Homepage />} />
+           <Route path="/TrekDetails" element={<TrekDetails />} />
         </Routes>
       </BrowserRouter>
 
