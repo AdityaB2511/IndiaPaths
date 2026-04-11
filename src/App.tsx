@@ -5,10 +5,12 @@ import Navmenu from './components/Navigation/Navmenu'
 import TrekDetails from './components/Home/Treks/TrekDetails'
 
 function App() {
+  const basename = import.meta.env.PROD ? '/IndiaPaths/' : '/'
+  
   return (
     <div className="w-full h-full overflow-auto" style={{ background: "#f7f5f0" }} id="app-wrapper">
       <Navmenu />
-      <BrowserRouter basename="/IndiaPaths/">
+      <BrowserRouter basename={basename}>
         <Routes>
            <Route path="/" element={<Homepage />} />
            <Route path="/TrekDetails" element={<TrekDetails />} />
