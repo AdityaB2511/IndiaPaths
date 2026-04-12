@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trek Detail</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&amp;family=Source+Sans+3:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    * { box-sizing: border-box; }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+    .font-body { font-family: 'Source Sans 3', 'Segoe UI', sans-serif; }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 40%, #1a3a2e 70%, #0f2922 100%);
+    }
+
+    .mountain-pattern {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23f5f0eb' d='M0,120 L0,80 Q180,20 360,60 Q540,100 720,40 Q900,-10 1080,50 Q1260,90 1440,30 L1440,120Z'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: cover;
+    }
+
+    .slider-container {
+      position: relative; overflow: hidden; border-radius: 12px;
+      height: 400px;
+    }
+
+    .slider-wrapper {
+      display: flex; height: 100%; transition: transform 0.5s ease-out;
+    }
+
+    .slider-item {
+      min-width: 100%; height: 100%; position: relative;
+      display: flex; align-items: flex-end; justify-content: flex-start;
+    }
+
+    .slider-item .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+    }
+
+    .slider-item .label {
+      position: relative; z-index: 10; color: white; padding: 20px;
+      font-size: 18px; font-weight: 600;
+    }
+
+    .slider-controls {
+      position: absolute; bottom: 20px; right: 20px; z-index: 20;
+      display: flex; gap: 8px;
+    }
+
+    .slider-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);
+      color: white; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .slider-btn:hover {
+      background: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.5);
+    }
+
+    .slider-dots {
+      position: absolute; bottom: 20px; left: 20px; z-index: 20;
+      display: flex; gap: 6px;
+    }
+
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.4); cursor: pointer; transition: all 0.3s;
+    }
+
+    .dot.active { background: white; width: 24px; border-radius: 4px; }
+
+    .stat-card {
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    }
+
+    .itinerary-line {
+      position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px;
+    }
+
+    .testimonial-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .inclusion-item { transition: transform 0.2s; }
+    .inclusion-item:hover { transform: translateX(4px); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in { animation: fadeUp 0.6s ease forwards; opacity: 0; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+
+    .cta-btn {
+      position: relative; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .cta-btn::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 0.5s;
+    }
+    .cta-btn:hover::after { transform: translateX(100%); }
+
+    .badge-glow {
+      box-shadow: 0 0 12px rgba(212,175,55,0.3);
+    }
+
+    .scroll-top-btn {
+      position: fixed; bottom: 24px; right: 24px; z-index: 50;
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s;
+      cursor: pointer; border: none;
+    }
+    .scroll-top-btn.visible { opacity: 1; transform: translateY(0); }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: { 900: '#1a2e1a', 700: '#2d4a2d', 500: '#4a7c4a' },
+            sand: { 50: '#f5f0eb', 100: '#ede5db', 200: '#ddd0c0' },
+            gold: { 500: '#d4af37', 600: '#b8941e' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body bg-sand-50 text-forest-900 overflow-auto" id="app-body"><!-- Back Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-40 transition-all duration-300" id="top-nav">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between"><button onclick="history.back()" class="flex items-center gap-2 text-white/90 hover:text-white transition-colors font-medium text-sm backdrop-blur-sm bg-white/10 rounded-full px-4 py-2"> <i data-lucide="arrow-left" style="width:16px;height:16px;"></i> <span>All Treks</span> </button>
+    <div class="flex items-center gap-3"><button class="backdrop-blur-sm bg-white/10 rounded-full p-2 text-white/90 hover:text-white hover:bg-white/20 transition-all" aria-label="Share trek"> <i data-lucide="share-2" style="width:18px;height:18px;"></i> </button> <button class="backdrop-blur-sm bg-white/10 rounded-full p-2 text-white/90 hover:text-white hover:bg-white/20 transition-all" aria-label="Save trek" id="bookmark-btn"> <i data-lucide="bookmark" style="width:18px;height:18px;"></i> </button>
+    </div>
+   </div>
+  </nav><!-- Hero Section -->
+  <header class="hero-gradient relative overflow-hidden" style="min-height: 520px;">
+   <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=60 height=60 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M30 5 L55 50 L5 50Z%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22/%3E%3C/svg%3E'); background-size: 60px 60px;"></div>
+   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-36">
+    <div class="animate-in"><span class="inline-flex items-center gap-2 bg-gold-500/20 text-gold-500 rounded-full px-4 py-1.5 text-sm font-semibold mb-5 badge-glow" id="difficulty-badge"> <i data-lucide="mountain" style="width:14px;height:14px;"></i> <span id="badge-difficulty">Moderate</span> </span>
+    </div>
+    <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-800 text-white leading-tight mb-4 animate-in delay-1" id="hero-title">Har Ki Dun Trek</h1>
+    <p class="text-white/70 text-lg sm:text-xl max-w-2xl mb-8 font-light animate-in delay-2" id="hero-tagline">Trek through mystical pine forests, alpine meadows, and pristine valleys to reach the sacred Har Ki Dun valley — a hidden Himalayan gem untouched by time.</p>
+    <div class="flex flex-wrap gap-4 animate-in delay-3">
+     <div class="flex items-center gap-2 text-white/80 text-sm"><i data-lucide="map-pin" style="width:16px;height:16px;"></i> <span>Himachal Pradesh</span>
+     </div>
+     <div class="flex items-center gap-2 text-white/80 text-sm"><i data-lucide="calendar" style="width:16px;height:16px;"></i> <span>Best: May–Oct</span>
+     </div>
+     <div class="flex items-center gap-2 text-white/80 text-sm"><i data-lucide="star" style="width:16px;height:16px;"></i> <span>4.8 (342 reviews)</span>
+     </div>
+    </div>
+   </div>
+   <div class="mountain-pattern"></div>
+  </header><!-- Quick Stats -->
+  <section class="relative z-10 -mt-16 max-w-6xl mx-auto px-4 sm:px-6 mb-16">
+   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="stat-card bg-white rounded-2xl p-5 text-center animate-in delay-1">
+     <div class="w-10 h-10 rounded-full bg-forest-700/10 flex items-center justify-center mx-auto mb-3"><i data-lucide="clock" style="width:20px;height:20px;color:#2d4a2d;"></i>
+     </div>
+     <p class="text-xs text-forest-900/50 uppercase tracking-wider mb-1 font-semibold">Duration</p>
+     <p class="font-display text-lg font-700" id="stat-duration">6 Days / 5 Nights</p>
+    </div>
+    <div class="stat-card bg-white rounded-2xl p-5 text-center animate-in delay-2">
+     <div class="w-10 h-10 rounded-full bg-forest-700/10 flex items-center justify-center mx-auto mb-3"><i data-lucide="ruler" style="width:20px;height:20px;color:#2d4a2d;"></i>
+     </div>
+     <p class="text-xs text-forest-900/50 uppercase tracking-wider mb-1 font-semibold">Distance</p>
+     <p class="font-display text-lg font-700" id="stat-distance">42 km</p>
+    </div>
+    <div class="stat-card bg-white rounded-2xl p-5 text-center animate-in delay-3">
+     <div class="w-10 h-10 rounded-full bg-forest-700/10 flex items-center justify-center mx-auto mb-3"><i data-lucide="trending-up" style="width:20px;height:20px;color:#2d4a2d;"></i>
+     </div>
+     <p class="text-xs text-forest-900/50 uppercase tracking-wider mb-1 font-semibold">Max Altitude</p>
+     <p class="font-display text-lg font-700" id="stat-altitude">3,570 m</p>
+    </div>
+    <div class="stat-card bg-white rounded-2xl p-5 text-center animate-in delay-4">
+     <div class="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-3"><i data-lucide="indian-rupee" style="width:20px;height:20px;color:#d4af37;"></i>
+     </div>
+     <p class="text-xs text-forest-900/50 uppercase tracking-wider mb-1 font-semibold">Starting From</p>
+     <p class="font-display text-lg font-700" id="stat-price">₹9,999</p>
+    </div>
+   </div>
+  </section><!-- About / Description -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
+   <div class="grid md:grid-cols-5 gap-10">
+    <div class="md:col-span-3">
+     <h2 class="font-display text-3xl font-700 mb-5">About This Trek</h2>
+     <div class="space-y-4 text-forest-900/75 leading-relaxed" id="description-text">
+      <p>The Har Ki Dun trek is a masterpiece of Himalayan beauty. You begin walking through verdant oak and pine forests, wildflowers carpeting the ground beneath your feet. As you ascend, the landscape transforms dramatically into pristine alpine meadows. The journey culminates at the sacred Har Ki Dun valley at 3,570 meters, one of the most spiritual and least crowded trekking destinations in India.</p>
+      <p>This valley has been a sacred pilgrimage site for centuries, known to locals as the "Abode of God." The trek offers an authentic Himalayan experience with minimal crowds, pristine nature, and warm hospitality from local shepherds and villagers.</p>
+      <p>This trek is ideal for those seeking spiritual connection with nature while experiencing true Himalayan wilderness at a manageable altitude and difficulty level.</p>
+     </div>
+    </div>
+    <div class="md:col-span-2">
+     <div class="bg-white rounded-2xl p-6 border border-sand-200">
+      <h3 class="font-display text-xl font-700 mb-4">Trek Highlights</h3>
+      <ul class="space-y-3">
+       <li class="flex items-start gap-3 inclusion-item"><span class="mt-1 w-6 h-6 rounded-full bg-forest-700/10 flex items-center justify-center flex-shrink-0"> <i data-lucide="sparkles" style="width:14px;height:14px;color:#2d4a2d;"></i> </span> <span class="text-sm text-forest-900/80">Sacred valley with centuries-old pilgrimage significance</span></li>
+       <li class="flex items-start gap-3 inclusion-item"><span class="mt-1 w-6 h-6 rounded-full bg-forest-700/10 flex items-center justify-center flex-shrink-0"> <i data-lucide="flower-2" style="width:14px;height:14px;color:#2d4a2d;"></i> </span> <span class="text-sm text-forest-900/80">Alpine meadows full of wildflowers (Mar-Oct)</span></li>
+       <li class="flex items-start gap-3 inclusion-item"><span class="mt-1 w-6 h-6 rounded-full bg-forest-700/10 flex items-center justify-center flex-shrink-0"> <i data-lucide="tree" style="width:14px;height:14px;color:#2d4a2d;"></i> </span> <span class="text-sm text-forest-900/80">Dense oak and pine forests with rich biodiversity</span></li>
+       <li class="flex items-start gap-3 inclusion-item"><span class="mt-1 w-6 h-6 rounded-full bg-forest-700/10 flex items-center justify-center flex-shrink-0"> <i data-lucide="users" style="width:14px;height:14px;color:#2d4a2d;"></i> </span> <span class="text-sm text-forest-900/80">Less crowded than popular Himalayan treks</span></li>
+       <li class="flex items-start gap-3 inclusion-item"><span class="mt-1 w-6 h-6 rounded-full bg-forest-700/10 flex items-center justify-center flex-shrink-0"> <i data-lucide="camera" style="width:14px;height:14px;color:#2d4a2d;"></i> </span> <span class="text-sm text-forest-900/80">Stunning photography at every turn</span></li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </section><!-- Photo Gallery - Horizontal Slider -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
+   <h2 class="font-display text-3xl font-700 mb-6">Trail Gallery</h2>
+   <div class="slider-container">
+    <div class="slider-wrapper" id="slider-wrapper">
+     <div class="slider-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&amp;h=600&amp;fit=crop'); background-size: cover; background-position: center;">
+      <div class="overlay"></div>
+      <div class="label">
+       Sacred Har Ki Dun Valley
+      </div>
+     </div>
+     <div class="slider-item" style="background-image: url('https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&amp;h=600&amp;fit=crop'); background-size: cover; background-position: center;">
+      <div class="overlay"></div>
+      <div class="label">
+       Pine &amp; Oak Forests
+      </div>
+     </div>
+     <div class="slider-item" style="background-image: url('https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&amp;h=600&amp;fit=crop'); background-size: cover; background-position: center;">
+      <div class="overlay"></div>
+      <div class="label">
+       Alpine Meadows in Bloom
+      </div>
+     </div>
+     <div class="slider-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&amp;h=600&amp;fit=crop'); background-size: cover; background-position: center;">
+      <div class="overlay"></div>
+      <div class="label">
+       Shepherd's Trail
+      </div>
+     </div>
+     <div class="slider-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&amp;h=600&amp;fit=crop'); background-size: cover; background-position: center;">
+      <div class="overlay"></div>
+      <div class="label">
+       Mountain Vistas
+      </div>
+     </div>
+     <div class="slider-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&amp;h=600&amp;fit=crop'); background-size: cover; background-position: center;">
+      <div class="overlay"></div>
+      <div class="label">
+       Sunrise Over the Valley
+      </div>
+     </div>
+    </div>
+    <div class="slider-dots" id="slider-dots"></div>
+    <div class="slider-controls"><button class="slider-btn" onclick="prevSlide()" aria-label="Previous slide"> <i data-lucide="chevron-left" style="width:20px;height:20px;"></i> </button> <button class="slider-btn" onclick="nextSlide()" aria-label="Next slide"> <i data-lucide="chevron-right" style="width:20px;height:20px;"></i> </button>
+    </div>
+   </div>
+  </section><!-- Itinerary -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
+   <h2 class="font-display text-3xl font-700 mb-8">Day-by-Day Itinerary</h2>
+   <div class="space-y-0" id="itinerary-container"><!-- Days rendered by JS -->
+   </div>
+  </section><!-- Inclusions / Exclusions -->
+  <section class="bg-white py-16 mb-20">
+   <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <h2 class="font-display text-3xl font-700 mb-8 text-center">What's Included</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+     <div>
+      <h3 class="flex items-center gap-2 font-semibold text-forest-700 mb-4"><i data-lucide="check-circle" style="width:20px;height:20px;color:#4a7c4a;"></i> Inclusions</h3>
+      <ul class="space-y-3" id="inclusions-list"></ul>
+     </div>
+     <div>
+      <h3 class="flex items-center gap-2 font-semibold text-red-700 mb-4"><i data-lucide="x-circle" style="width:20px;height:20px;color:#b91c1c;"></i> Exclusions</h3>
+      <ul class="space-y-3" id="exclusions-list"></ul>
+     </div>
+    </div>
+   </div>
+  </section><!-- Testimonials -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
+   <h2 class="font-display text-3xl font-700 mb-3 text-center">What Trekkers Say</h2>
+   <p class="text-center text-forest-900/50 mb-10">Real stories from real adventurers</p>
+   <div class="grid md:grid-cols-3 gap-6" id="testimonials-container"></div>
+  </section><!-- Essential Info -->
+  <section class="bg-forest-900 text-white py-16 mb-0">
+   <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <h2 class="font-display text-3xl font-700 mb-8 text-center">Essential Information</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+     <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+      <div class="flex items-center gap-3 mb-3"><i data-lucide="backpack" style="width:20px;height:20px;color:#d4af37;"></i>
+       <h3 class="font-semibold text-sm">What to Pack</h3>
+      </div>
+      <p class="text-white/60 text-sm leading-relaxed">Layered clothing, trekking shoes, rain jacket, sunscreen, water bottle, personal medication, snacks.</p>
+     </div>
+     <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+      <div class="flex items-center gap-3 mb-3"><i data-lucide="thermometer" style="width:20px;height:20px;color:#d4af37;"></i>
+       <h3 class="font-semibold text-sm">Weather</h3>
+      </div>
+      <p class="text-white/60 text-sm leading-relaxed">Daytime: 12–18°C. Nighttime: 2–8°C at higher camps. Rain possible Jun–Aug.</p>
+     </div>
+     <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+      <div class="flex items-center gap-3 mb-3"><i data-lucide="heart-pulse" style="width:20px;height:20px;color:#d4af37;"></i>
+       <h3 class="font-semibold text-sm">Fitness</h3>
+      </div>
+      <p class="text-white/60 text-sm leading-relaxed">Moderate fitness required. Be able to walk 6–8 km daily. Great for beginners and experienced trekkers.</p>
+     </div>
+     <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+      <div class="flex items-center gap-3 mb-3"><i data-lucide="bus" style="width:20px;height:20px;color:#d4af37;"></i>
+       <h3 class="font-semibold text-sm">Getting There</h3>
+      </div>
+      <p class="text-white/60 text-sm leading-relaxed">Fly to Delhi or Chandigarh. Drive to Sankri village (230 km). Trek starts from Sankri.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Sticky CTA -->
+  <div class="sticky bottom-0 z-30 bg-white/90 backdrop-blur-md border-t border-sand-200 py-4 px-4 sm:px-6">
+   <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <div>
+     <p class="text-sm text-forest-900/50">Starting from</p>
+     <p class="font-display text-2xl font-700" id="sticky-price">₹9,999</p>
+     <p class="text-xs text-forest-900/40">per person • All inclusive</p>
+    </div><button class="cta-btn font-semibold text-white px-8 py-3.5 rounded-full text-base" id="cta-button" style="background: linear-gradient(135deg, #2d4a2d, #4a7c4a);"> <span id="cta-text">Book This Trek</span> <i data-lucide="arrow-right" style="width:18px;height:18px;display:inline-block;vertical-align:middle;margin-left:8px;"></i> </button>
+   </div>
+  </div><!-- Scroll to Top --> <button class="scroll-top-btn" id="scroll-top" style="background: #2d4a2d; color: white;" aria-label="Scroll to top"> <i data-lucide="chevron-up" style="width:24px;height:24px;"></i> </button>
+  <script>
+  // Slider functionality
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slider-item');
+  const totalSlides = slides.length;
+
+  function initSlider() {
+    const dotsContainer = document.getElementById('slider-dots');
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = `dot ${i === 0 ? 'active' : ''}`;
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateSlider() {
+    const wrapper = document.getElementById('slider-wrapper');
+    wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+    document.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  }
+
+  function goToSlide(n) {
+    currentSlide = n;
+    updateSlider();
+  }
+
+  // Data
+  const itineraryData = [
+    { day: 1, title: "Dehradun to Sankri", altitude: "1,590 m", distance: "230 km drive", desc: "Drive from Dehradun to Sankri village. Explore the charming hill station with stone cottages and lush surroundings. Acclimatize to the Himalayan environment." },
+    { day: 2, title: "Sankri to Taluka", altitude: "2,650 m", distance: "12 km", desc: "Trek through thick oak and pine forests. Cross streams and enjoy panoramic views. Camp at Taluka with mountain vistas." },
+    { day: 3, title: "Taluka to Har Ki Dun", altitude: "3,570 m", distance: "10 km", desc: "Enter the sacred Har Ki Dun valley. Walk through alpine meadows full of wildflowers (seasonal). Reach the breathtaking valley camp." },
+    { day: 4, title: "Exploration Day at Har Ki Dun", altitude: "3,570 m", distance: "6 km", desc: "Explore the valley, visit nearby viewpoints, and experience the spiritual essence. Optional short hikes around the campsite." },
+    { day: 5, title: "Har Ki Dun to Taluka", altitude: "2,650 m", distance: "10 km", desc: "Trek down through wildflower meadows. Encounter local shepherds and their grazing herds. Camp at Taluka again." },
+    { day: 6, title: "Taluka to Sankri & Drive Back", altitude: "1,590 m", distance: "12 km trek + 230 km drive", desc: "Final trek to Sankri. Drive back to Dehradun. Trek complete with unforgettable memories!" }
+  ];
+
+  const inclusions = [
+    "All meals during the trek (vegetarian & non-vegetarian)",
+    "Camping in quality mountain tents with sleeping bags",
+    "Experienced trek leader & support staff",
+    "First aid kit & medical support",
+    "All permits and forest entry fees",
+    "Transport: Dehradun ↔ Sankri & return"
+  ];
+  const exclusions = [
+    "Travel to and from Dehradun",
+    "Personal trekking gear & clothing",
+    "Travel insurance (recommended)",
+    "Tips and personal expenses",
+    "Meals in Sankri (Dehradun)",
+    "Anything not mentioned in inclusions"
+  ];
+
+  const testimonials = [
+    { name: "Ananya Verma", location: "Delhi", rating: 5, text: "Har Ki Dun is pure magic! The valley completely stole my heart. Less crowded than other treks, with pristine beauty. Highly recommended!", avatar: "AV", date: "Oct 2024" },
+    { name: "Rohan Tiwari", location: "Bangalore", rating: 5, text: "Perfect trek for someone looking to escape crowds. The forests are dense and beautiful, and the locals are incredibly warm and welcoming.", avatar: "RT", date: "Sep 2024" },
+    { name: "Priya Singh", location: "Pune", rating: 4, text: "Stunning valley with spiritual vibes. The altitude is manageable and the trek is well-organized. Will definitely come back to explore more!", avatar: "PS", date: "Aug 2024" }
+  ];
+
+  // Init slider
+  document.addEventListener('DOMContentLoaded', initSlider);
+
+  // Render itinerary
+  const itCont = document.getElementById('itinerary-container');
+  itineraryData.forEach((d, i) => {
+    const isLast = i === itineraryData.length - 1;
+    itCont.innerHTML += `
+      <div class="relative pl-14 pb-8 cursor-pointer group" onclick="this.querySelector('.it-details').classList.toggle('hidden')">
+        <div class="itinerary-line ${isLast ? 'hidden' : ''}" style="background: linear-gradient(to bottom, #2d4a2d, #ddd0c0);"></div>
+        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-forest-700 text-white flex items-center justify-center font-display font-700 text-sm z-10 group-hover:scale-110 transition-transform">${d.day}</div>
+        <div class="bg-white rounded-2xl p-5 border border-sand-200 group-hover:shadow-lg transition-shadow">
+          <div class="flex flex-wrap items-center gap-3 mb-1">
+            <h3 class="font-display text-lg font-700">${d.title}</h3>
+            <div class="flex gap-2 text-xs text-forest-900/50">
+              <span class="bg-sand-100 rounded-full px-2.5 py-0.5">${d.altitude}</span>
+              <span class="bg-sand-100 rounded-full px-2.5 py-0.5">${d.distance}</span>
+            </div>
+          </div>
+          <p class="it-details text-sm text-forest-900/65 leading-relaxed ${i > 0 ? 'hidden' : ''}">${d.desc}</p>
+        </div>
+      </div>`;
+  });
+
+  // Render inclusions / exclusions
+  const incList = document.getElementById('inclusions-list');
+  inclusions.forEach(t => {
+    incList.innerHTML += `<li class="inclusion-item flex items-start gap-3"><span class="mt-0.5 flex-shrink-0"><i data-lucide="check" style="width:16px;height:16px;color:#4a7c4a;"></i></span><span class="text-sm text-forest-900/75">${t}</span></li>`;
+  });
+  const excList = document.getElementById('exclusions-list');
+  exclusions.forEach(t => {
+    excList.innerHTML += `<li class="inclusion-item flex items-start gap-3"><span class="mt-0.5 flex-shrink-0"><i data-lucide="x" style="width:16px;height:16px;color:#b91c1c;"></i></span><span class="text-sm text-forest-900/75">${t}</span></li>`;
+  });
+
+  // Render testimonials
+  const testCont = document.getElementById('testimonials-container');
+  testimonials.forEach(t => {
+    const stars = Array(5).fill(0).map((_, i) => `<i data-lucide="star" style="width:14px;height:14px;${i < t.rating ? 'color:#d4af37;fill:#d4af37;' : 'color:#ddd0c0;'}"></i>`).join('');
+    testCont.innerHTML += `
+      <div class="testimonial-card bg-white rounded-2xl p-6 border border-sand-200">
+        <div class="flex gap-1 mb-4">${stars}</div>
+        <p class="text-sm text-forest-900/70 leading-relaxed mb-5 italic">"${t.text}"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-forest-700 text-white flex items-center justify-center font-semibold text-sm">${t.avatar}</div>
+          <div>
+            <p class="text-sm font-semibold">${t.name}</p>
+            <p class="text-xs text-forest-900/40">${t.location} · ${t.date}</p>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  // Bookmark toggle
+  let bookmarked = false;
+  document.getElementById('bookmark-btn').addEventListener('click', function() {
+    bookmarked = !bookmarked;
+    this.innerHTML = bookmarked
+      ? '<i data-lucide="bookmark" style="width:18px;height:18px;fill:white;"></i>'
+      : '<i data-lucide="bookmark" style="width:18px;height:18px;"></i>';
+    lucide.createIcons();
+  });
+
+  // Scroll to top
+  const scrollBtn = document.getElementById('scroll-top');
+  const appBody = document.getElementById('app-body');
+  appBody.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', appBody.scrollTop > 400);
+    const nav = document.getElementById('top-nav');
+    if (appBody.scrollTop > 100) {
+      nav.style.background = 'rgba(26,46,26,0.9)';
+      nav.style.backdropFilter = 'blur(12px)';
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+    }
+  });
+  scrollBtn.addEventListener('click', () => appBody.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // CTA button visual feedback
+  document.getElementById('cta-button').addEventListener('click', function() {
+    const original = this.innerHTML;
+    this.innerHTML = '<span>✓ Request Sent!</span>';
+    this.style.background = '#4a7c4a';
+    setTimeout(() => { this.innerHTML = original; this.style.background = 'linear-gradient(135deg, #2d4a2d, #4a7c4a)'; lucide.createIcons(); }, 2000);
+  });
+
+  // Init icons
+  lucide.createIcons();
+
+  // Element SDK
+  const defaultConfig = {
+    trek_name: 'Har Ki Dun Trek',
+    trek_tagline: 'Trek through mystical pine forests, alpine meadows, and pristine valleys to reach the sacred Har Ki Dun valley — a hidden Himalayan gem untouched by time.',
+    trek_description: 'The Har Ki Dun trek is a masterpiece of Himalayan beauty. You begin walking through verdant oak and pine forests, wildflowers carpeting the ground beneath your feet. As you ascend, the landscape transforms dramatically into pristine alpine meadows. The journey culminates at the sacred Har Ki Dun valley at 3,570 meters, one of the most spiritual and least crowded trekking destinations in India.',
+    difficulty_level: 'Moderate',
+    trek_duration: '6 Days / 5 Nights',
+    trek_distance: '42 km',
+    max_altitude: '3,570 m',
+    trek_price: '₹9,999',
+    cta_button_text: 'Book This Trek',
+    background_color: '#f5f0eb',
+    surface_color: '#ffffff',
+    text_color: '#1a2e1a',
+    primary_action_color: '#2d4a2d',
+    secondary_action_color: '#d4af37',
+    font_family: 'Playfair Display',
+    font_size: 16
+  };
+
+  function applyConfig(config) {
+    const c = { ...defaultConfig, ...config };
+    // Text
+    document.getElementById('hero-title').textContent = c.trek_name;
+    document.getElementById('hero-tagline').textContent = c.trek_tagline;
+    document.getElementById('badge-difficulty').textContent = c.difficulty_level;
+    document.getElementById('stat-duration').textContent = c.trek_duration;
+    document.getElementById('stat-distance').textContent = c.trek_distance;
+    document.getElementById('stat-altitude').textContent = c.max_altitude;
+    document.getElementById('stat-price').textContent = c.trek_price;
+    document.getElementById('sticky-price').textContent = c.trek_price;
+    document.getElementById('cta-text').textContent = c.cta_button_text;
+
+    // Colors
+    document.body.style.backgroundColor = c.background_color;
+    document.querySelectorAll('.stat-card, .testimonial-card, .bg-white').forEach(el => {
+      el.style.backgroundColor = c.surface_color;
+    });
+    document.body.style.color = c.text_color;
+
+    // Font
+    const fontStack = `${c.font_family}, Georgia, serif`;
+    document.querySelectorAll('.font-display').forEach(el => el.style.fontFamily = fontStack);
+
+    // Font size
+    const base = c.font_size;
+    document.getElementById('hero-title').style.fontSize = `${base * 3}px`;
+    document.getElementById('hero-tagline').style.fontSize = `${base * 1.2}px`;
+    document.querySelectorAll('h2').forEach(el => el.style.fontSize = `${base * 1.8}px`);
+  }
+
+  if (window.elementSdk) {
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => applyConfig(config),
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+          { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+          { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+        }
+      }),
+      mapToEditPanelValues: (config) => new Map([
+        ['trek_name', config.trek_name || defaultConfig.trek_name],
+        ['trek_tagline', config.trek_tagline || defaultConfig.trek_tagline],
+        ['trek_description', config.trek_description || defaultConfig.trek_description],
+        ['difficulty_level', config.difficulty_level || defaultConfig.difficulty_level],
+        ['trek_duration', config.trek_duration || defaultConfig.trek_duration],
+        ['trek_distance', config.trek_distance || defaultConfig.trek_distance],
+        ['max_altitude', config.max_altitude || defaultConfig.max_altitude],
+        ['trek_price', config.trek_price || defaultConfig.trek_price],
+        ['cta_button_text', config.cta_button_text || defaultConfig.cta_button_text]
+      ])
+    });
+  }
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ea7384644ed7f41',t:'MTc3NTg4MTQ0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
