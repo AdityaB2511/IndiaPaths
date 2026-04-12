@@ -1,24 +1,34 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './styles/App.css'
-import Homepage from './pages/Homepage'
-import Navmenu from './components/Navigation/Navmenu'
-import TrekDetails from './components/Home/Treks/TrekDetails'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./styles/App.css";
+import Homepage from "./pages/Homepage";
+import Navmenu from "./components/Navigation/Navmenu";
+import TrekDetails from "./components/Home/Treks/TrekDetails";
 
 function App() {
-  const basename = import.meta.env.PROD ? '/IndiaPaths/' : '/'
-  
+  const basename = import.meta.env.PROD ? "/IndiaPaths/" : "/";
+
   return (
-    <div className="w-full h-full overflow-auto" style={{ background: "#f7f5f0" }} id="app-wrapper">
-      <Navmenu />
+    <div
+      className="w-full h-full overflow-auto"
+      style={{ background: "#f7f5f0" }}
+      id="app-wrapper"
+    >
       <BrowserRouter basename={basename}>
         <Routes>
-           <Route path="/" element={<Homepage />} />
-           <Route path="/TrekDetails" element={<TrekDetails />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Navmenu />
+                <Homepage />
+              </>
+            }
+          />
+          <Route path="/TrekDetails" element={<TrekDetails />} />
         </Routes>
       </BrowserRouter>
-
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
