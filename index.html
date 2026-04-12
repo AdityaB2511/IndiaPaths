@@ -5,6 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="/IndiaPaths/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>indiapaths</title>
+    <script type="text/javascript">
+      // Handle redirect from 404.html for GitHub Pages SPA
+      (function() {
+        const redirect = sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          delete sessionStorage.redirect;
+          // Use the redirect path for client-side routing
+          window.history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/IndiaPaths/assets/index-BKfe6RBT.js"></script>
     <link rel="stylesheet" crossorigin href="/IndiaPaths/assets/index-DA44oroC.css">
   </head>
