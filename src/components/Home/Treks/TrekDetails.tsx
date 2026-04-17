@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 
 import './trek.css';
-import type { TrekCompleteData } from '../../../constants';
+import { getTrekDetailsByName, type TrekCompleteData } from '../../../utils/constants';
 
 export default function TrekDetails() {
   const [searchParams] = useSearchParams();

@@ -704,6 +704,5 @@ export function getTrekDetailsByName(trekName: string | null): TrekCompleteData 
 
   // Normalize the trek name: convert to lowercase and replace spaces/hyphens with nothing
   const normalizedName = trekName.toLowerCase().replace(/[\s-_]/g, '');
-
   return TREK_DETAILS_MAP[normalizedName] || null;
 }
