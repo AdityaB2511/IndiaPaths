@@ -1,9 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import type { Trek } from "../../../utils/constants";
 
 export default function TrekTile(props: Trek) {
+  const navigate = useNavigate();
+  const handletileClick = (trekName: string) => {
+    navigate("/TrekDetails?name=" + trekName);
+  };
+
   return props ? (
-    <div
-      className="trek-card group rounded-2xl overflow-hidden relative cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+    <div className="trek-card group rounded-2xl overflow-hidden relative cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+      onClick={() => handletileClick(props.uniqueName)}
     >
       <div
         className="trek-img absolute inset-0 transition-transform duration-500 group-hover:scale-110"
@@ -16,6 +22,7 @@ export default function TrekTile(props: Trek) {
       <div
         className="trek-overlay absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{ background: "rgba(15, 32, 39, 0.7)" }}
+        onClick={() => handletileClick(props.uniqueName)}
       >
         <span
           className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold hover:scale-105 transition-transform"
@@ -41,14 +48,21 @@ export default function TrekTile(props: Trek) {
         />
       </svg>
       <div className="trek-content absolute bottom-0 left-0 right-0">
-        <h3 className="trek-title font-display text-white mb-1 sm:mb-1.5 leading-tight font-bold">{props.name}</h3>
-        <p className="trek-description text-white/60 mb-2 sm:mb-3 leading-relaxed line-clamp-2">{props.description}</p>
+        <h3 className="trek-title font-display text-white mb-1 sm:mb-1.5 leading-tight font-bold">
+          {props.name}
+        </h3>
+        <p className="trek-description text-white/60 mb-2 sm:mb-3 leading-relaxed line-clamp-2">
+          {props.description}
+        </p>
         <div className="flex items-center justify-between pt-2 sm:pt-2.5 border-t border-white/10">
           <div className="flex items-center gap-1 sm:gap-1.5 text-white/70 text-xs sm:text-sm">
             <i data-lucide="map-pin" style={{ width: 13, height: 13 }} />
             <span className="font-medium truncate">{props.state}</span>
           </div>
-          <p className="font-bold text-sm sm:text-base" style={{ color: "#d4a855" }}>
+          <p
+            className="font-bold text-sm sm:text-base"
+            style={{ color: "#d4a855" }}
+          >
             ₹{props.price}/{props.duration}
           </p>
         </div>

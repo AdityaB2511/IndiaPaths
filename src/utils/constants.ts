@@ -7,6 +7,7 @@ export const TREK_DATA : Trek[] = [
     state: "Uttarakhand",
     price: 8499,
     popularity: "Popular",
+    uniqueName:"kedarkanthatrek"
 },
 {
     id: 2,
@@ -16,6 +17,7 @@ export const TREK_DATA : Trek[] = [
     state: "Uttarakhand",
     price: 7999,
     popularity: "Trending",
+    uniqueName:"valleyofflowerstrek"
 },
 {
     id: 3,
@@ -25,6 +27,7 @@ export const TREK_DATA : Trek[] = [
     state: "Himachal Pradesh",
     price: 6999,
     popularity: "Popular",
+    uniqueName:"hamptapass"
 },
 {
     id: 4,  
@@ -34,6 +37,7 @@ export const TREK_DATA : Trek[] = [
     state: "Himachal Pradesh",
     price: 4999,
     popularity: "Popular",
+    uniqueName:"triund"
 }
 ];
 
@@ -45,4 +49,5 @@ export interface Trek {
     state: string;
     price: number;
     popularity: string;
+    uniqueName: string;
 }
