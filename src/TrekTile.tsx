@@ -1,4 +1,4 @@
-import type { Trek } from "./constants";
+import type { Trek } from "./utils/constants";
 
 export default function TrekTile(props: Trek) {
   return props ? (
