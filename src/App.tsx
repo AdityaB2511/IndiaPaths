@@ -5,7 +5,6 @@ import Navmenu from "./components/Navigation/Navmenu";
 import TrekDetails from "./components/Home/Treks/TrekDetails";
 
 function App() {
-  const basename = import.meta.env.PROD ? "/IndiaPaths/" : "/";
 
   return (
     <div
@@ -13,7 +12,7 @@ function App() {
       style={{ background: "#f7f5f0" }}
       id="app-wrapper"
     >
-      <BrowserRouter basename={basename}>
+      <BrowserRouter>
         <Routes>
           <Route
             path="/"

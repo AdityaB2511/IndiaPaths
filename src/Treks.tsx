@@ -1,5 +1,5 @@
-import { TREK_DATA } from "./constants";
 import TrekTile from "./TrekTile";
+import { TREK_DATA } from "./utils/constants";
 
 export default function Treks() {
   return (

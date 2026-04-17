@@ -24,11 +24,9 @@ import {
   Bus,
   ChevronUp,
 } from 'lucide-react';
-import {
-  getTrekDetailsByName,
-  type TrekCompleteData,
-} from '../../../constants';
+
 import './trek.css';
+import { getTrekDetailsByName, type TrekCompleteData } from '../../../utils/constants';
 
 export default function TrekDetails() {
   const [searchParams] = useSearchParams();
