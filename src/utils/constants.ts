@@ -6,6 +6,21 @@ import valleyofflowerstrek from "../assets/Treks/ValleyofFlowers/valleyofFlowers
 import trimud from "../assets/Treks/trimud/trimud.png";
 import balipasshomepage from "../assets/Treks/baliPass/balipasshomepage.png";
 import hamptaPasshomepage from "../assets/Treks/HamptaPass/hamptaPassHomePage.jpeg";
+import DayaraBugyalHomePage from "../assets/Treks/DayaraBugyal/DayaraBugyalHomePage.png";
+import bharadsartrek from "../assets/Treks/baraadsar lake trek/baraadsarLakeTrek.png";
+import vijaytopHomepage from "../assets/Treks/Vijaytop/vijaytop.png";
+import gomukhтapovanHomepage from "../assets/Treks/gomukh tapovan trek/gaumukh_tapovan_trek.jpg";
+import borasupassHomepage from "../assets/Treks/borasu pass trek/borasu_pass_trek.jpg";
+import phulararidgeHomepage from "../assets/Treks/phulara ridge trek/phulara ridge trek.png";
+import sarutakHomepage from "../assets/Treks/saru tal trek/Saru-Tal-Trek.jpg";
+import Choptachandarshila from "../assets/Treks/chopta chandrashila trek/chandrashila-top-view.jpg";
+import kuaripass from "../assets/Treks/kuari pass trek/kuari pass trek.jpg"
+import kglTrek from "../assets/Treks/kgl trek/kgl trek.png";
+import sarPassTrek from "../assets/Treks/sar pass trek/sar pass trek.png";
+import nagTibbaTrek from "../assets/Treks/nag tibba trek/nag tibba trek.png";
+import kedarkanthaHomepage from "../assets/Treks/kedarkantha/Kedarkantha_Peak.jpg";
+import lekhatop from "../assets/Treks/lekha top trek/LTOP-03.jpg";
+
 export const TREK_DATA: Trek[] = [
   {
     id: 1,
@@ -16,6 +31,7 @@ export const TREK_DATA: Trek[] = [
     price: 8499,
     popularity: "Popular",
     uniqueName: "kedarkanthatrek",
+    image : kedarkanthaHomepage
   },
   {
     id: 2,
@@ -81,6 +97,7 @@ export const TREK_DATA: Trek[] = [
     price: 5499,
     popularity: "Emerging",
     uniqueName: "lekhattop",
+    image : lekhatop
   },
   {
     id: 8,
@@ -91,6 +108,7 @@ export const TREK_DATA: Trek[] = [
     price: 6999,
     popularity: "Popular",
     uniqueName: "devkayarabhugya",
+    image:DayaraBugyalHomePage
   },
   {
     id: 9,
@@ -101,6 +119,7 @@ export const TREK_DATA: Trek[] = [
     price: 8999,
     popularity: "Popular",
     uniqueName: "bharadsartrek",
+    image : bharadsartrek
   },
   {
     id: 10,
@@ -111,8 +130,9 @@ export const TREK_DATA: Trek[] = [
     price: 7299,
     popularity: "Popular",
     uniqueName: "vijaytop",
+    image : vijaytopHomepage
   },
-  {
+  /* {
     id: 11,
     name: "Dhoka Top Trek",
     duration: "5 Days",
@@ -121,7 +141,7 @@ export const TREK_DATA: Trek[] = [
     price: 6899,
     popularity: "Popular",
     uniqueName: "dhokatop",
-  },
+  }, */
   {
     id: 12,
     name: "Gomukh Tapovan Trek",
@@ -131,6 +151,7 @@ export const TREK_DATA: Trek[] = [
     price: 10999,
     popularity: "Trending",
     uniqueName: "gomukhтapovan",
+    image: gomukhтapovanHomepage
   },
   {
     id: 13,
@@ -141,6 +162,7 @@ export const TREK_DATA: Trek[] = [
     price: 8699,
     popularity: "Popular",
     uniqueName: "borasupass",
+    image : borasupassHomepage
   },
   {
     id: 14,
@@ -151,6 +173,7 @@ export const TREK_DATA: Trek[] = [
     price: 7199,
     popularity: "Popular",
     uniqueName: "phulararidge",
+    image : phulararidgeHomepage
   },
   {
     id: 15,
@@ -161,16 +184,18 @@ export const TREK_DATA: Trek[] = [
     price: 6599,
     popularity: "Emerging",
     uniqueName: "sarutak",
+    image : sarutakHomepage
   },
   {
     id: 16,
-    name: "Chota Chandarshila Trek",
+    name: "Chopta Chandarshila Trek",
     duration: "3 Days",
     description: "Short alpine trek with panoramic peak views",
     state: "Uttarakhand",
     price: 5299,
     popularity: "Popular",
-    uniqueName: "chotachandarshila",
+    uniqueName: "Choptachandarshila",
+    image : Choptachandarshila
   },
   {
     id: 17,
@@ -181,6 +206,7 @@ export const TREK_DATA: Trek[] = [
     price: 3999,
     popularity: "Popular",
     uniqueName: "nagtibba",
+    image : nagTibbaTrek
   },
   {
     id: 18,
@@ -191,6 +217,7 @@ export const TREK_DATA: Trek[] = [
     price: 8199,
     popularity: "Popular",
     uniqueName: "kuaripass",
+    image : kuaripass
   },
   {
     id: 19,
@@ -201,6 +228,7 @@ export const TREK_DATA: Trek[] = [
     price: 12999,
     popularity: "Trending",
     uniqueName: "kashmirgreaklakes",
+    image : kglTrek
   },
   {
     id: 20,
@@ -211,6 +239,7 @@ export const TREK_DATA: Trek[] = [
     price: 8399,
     popularity: "Popular",
     uniqueName: "sarpass",
+    image : sarPassTrek
   },
 ];
 
@@ -1475,14 +1504,14 @@ export const SARU_TAK_GALLERY: string[] = [
 ];
 
 // ============================================
-// CHOTA CHANDARSHILA TREK DATA
+// Chopta CHANDARSHILA TREK DATA
 // ============================================
-export const CHOTA_CHANDARSHILA_TREK: TrekDetail = {
-  name: 'Chota Chandarshila Trek',
+export const Chopta_CHANDARSHILA_TREK: TrekDetail = {
+  name: 'Chopta Chandarshila Trek',
   tagline:
     'Quick alpine trek through pristine meadows with panoramic peak views.',
   description:
-    'Chota Chandarshila is a short but scenic alpine trek in Uttarakhand offering panoramic views of surrounding peaks. The trek is perfect for a quick weekend escape and is suitable for all age groups. The area is known for its pristine meadows and spotless natural environment.',
+    'Chopta Chandarshila is a short but scenic alpine trek in Uttarakhand offering panoramic views of surrounding peaks. The trek is perfect for a quick weekend escape and is suitable for all age groups. The area is known for its pristine meadows and spotless natural environment.',
   difficulty: 'Easy',
   duration: '3 Days / 2 Nights',
   distance: '14 km',
@@ -1494,7 +1523,7 @@ export const CHOTA_CHANDARSHILA_TREK: TrekDetail = {
   reviews: 167,
 };
 
-export const CHOTA_CHANDARSHILA_ITINERARY: ItineraryDay[] = [
+export const Chopta_CHANDARSHILA_ITINERARY: ItineraryDay[] = [
   {
     day: 1,
     title: 'Chani to Camp',
@@ -1504,7 +1533,7 @@ export const CHOTA_CHANDARSHILA_ITINERARY: ItineraryDay[] = [
   },
   {
     day: 2,
-    title: 'Camp to Chota Chandarshila',
+    title: 'Camp to Chopta Chandarshila',
     altitude: '2,680 m',
     distance: '6 km',
     desc: 'Trek to alpine meadows.',
@@ -1518,22 +1547,22 @@ export const CHOTA_CHANDARSHILA_ITINERARY: ItineraryDay[] = [
   },
 ];
 
-export const CHOTA_CHANDARSHILA_INCLUSIONS: string[] = [
+export const Chopta_CHANDARSHILA_INCLUSIONS: string[] = [
   'All meals during the trek',
   'Camping in comfortable tents',
   'Trek leader & guide',
   'First aid support',
 ];
 
-export const CHOTA_CHANDARSHILA_EXCLUSIONS: string[] = [
+export const Chopta_CHANDARSHILA_EXCLUSIONS: string[] = [
   'Travel to and from Chani',
   'Personal gear & clothing',
   'Tips and personal expenses',
 ];
 
-export const CHOTA_CHANDARSHILA_TESTIMONIALS: Testimonial[] = [];
+export const Chopta_CHANDARSHILA_TESTIMONIALS: Testimonial[] = [];
 
-export const CHOTA_CHANDARSHILA_GALLERY: string[] = [
+export const Chopta_CHANDARSHILA_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
   'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
 ];
@@ -1995,13 +2024,13 @@ export const TREK_DETAILS_MAP: Record<string, TrekCompleteData> = {
     testimonials: SARU_TAK_TESTIMONIALS,
     gallery: SARU_TAK_GALLERY,
   },
-  chotachandarshila: {
-    trek: CHOTA_CHANDARSHILA_TREK,
-    itinerary: CHOTA_CHANDARSHILA_ITINERARY,
-    inclusions: CHOTA_CHANDARSHILA_INCLUSIONS,
-    exclusions: CHOTA_CHANDARSHILA_EXCLUSIONS,
-    testimonials: CHOTA_CHANDARSHILA_TESTIMONIALS,
-    gallery: CHOTA_CHANDARSHILA_GALLERY,
+  choptachandarshila: {
+    trek: Chopta_CHANDARSHILA_TREK,
+    itinerary: Chopta_CHANDARSHILA_ITINERARY,
+    inclusions: Chopta_CHANDARSHILA_INCLUSIONS,
+    exclusions: Chopta_CHANDARSHILA_EXCLUSIONS,
+    testimonials: Chopta_CHANDARSHILA_TESTIMONIALS,
+    gallery: Chopta_CHANDARSHILA_GALLERY,
   },
   nagtibba: {
     trek: NAG_TIBBA_TREK,
