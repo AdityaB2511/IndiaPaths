@@ -3,7 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import {
   ArrowLeft,
   Share2,
-  Bookmark,
   Mountain,
   MapPin,
   Calendar,
@@ -35,7 +34,6 @@ export default function TrekDetails() {
   const [notFound, setNotFound] = useState(false);
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [bookmarked, setBookmarked] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [expandedDay, setExpandedDay] = useState(0);
   const [navBg, setNavBg] = useState('transparent');
