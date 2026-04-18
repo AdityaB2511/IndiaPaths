@@ -8,17 +8,19 @@ export default function TrekTile(props: Trek) {
   };
 
   return props ? (
-    <div className="trek-card group rounded-2xl overflow-hidden relative cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+    <div
+      className="trek-card group rounded-2xl overflow-hidden relative cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
       onClick={() => handletileClick(props.uniqueName)}
     >
       <div
-        className="trek-img absolute inset-0 transition-transform duration-500 group-hover:scale-110"
+        className="trek-img absolute inset-0 transition-all duration-500 group-hover:scale-110 group-hover:brightness-75"
         style={{
-          background:
-            "linear-gradient(135deg, #1a3a4a 0%, #2c5364 40%, #3a7a6a 100%)",
+          backgroundImage: `url(${props.image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       ></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
       <div
         className="trek-overlay absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{ background: "rgba(15, 32, 39, 0.7)" }}
@@ -48,10 +50,21 @@ export default function TrekTile(props: Trek) {
         />
       </svg>
       <div className="trek-content absolute bottom-0 left-0 right-0">
-        <h3 className="trek-title font-display text-white mb-1 sm:mb-1.5 leading-tight font-bold">
+        <h3
+          className="trek-title font-display text-white mb-1 sm:mb-1.5 leading-tight font-bold"
+          style={{
+            textShadow: "0 2px 8px rgba(0,0,0,0.8)",
+          }}
+        >
           {props.name}
         </h3>
-        <p className="trek-description text-white/60 mb-2 sm:mb-3 leading-relaxed line-clamp-2">
+        <p
+          className="mb-2 leading-relaxed"
+          style={{
+            color: "#e5e7eb", // soft white
+            textShadow: "0 2px 8px rgba(0,0,0,0.8)",
+          }}
+        >
           {props.description}
         </p>
         <div className="flex items-center justify-between pt-2 sm:pt-2.5 border-t border-white/10">

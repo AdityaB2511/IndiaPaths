@@ -1,6 +1,8 @@
 // ============================================
 // TREK LIST DATA
 // ============================================
+import Harkidunhomepage from "../assets/Treks/HarKiDhun/Harkidunhomepage.jpeg";
+
 export const TREK_DATA: Trek[] = [
   {
     id: 1,
@@ -51,6 +53,7 @@ export const TREK_DATA: Trek[] = [
     price: 9999,
     popularity: "Popular",
     uniqueName: "harkidhun",
+    image: Harkidunhomepage,
   },
   {
     id: 6,
@@ -213,6 +216,7 @@ export interface Trek {
   price: number;
   popularity: string;
   uniqueName: string;
+  image?: string;
 }
 
 // ============================================
