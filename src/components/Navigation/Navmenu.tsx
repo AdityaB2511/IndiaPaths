@@ -34,7 +34,7 @@ export default function Navmenu() {
                 id="nav-brand"
                 className="font-display text-xl sm:text-2xl text-white"
               >
-                India Paths
+                Indian Paths
               </span>
             </a>
             <div className="hidden md:flex items-center gap-8">
