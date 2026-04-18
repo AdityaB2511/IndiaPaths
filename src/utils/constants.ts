@@ -2024,7 +2024,7 @@ export const TREK_DETAILS_MAP: Record<string, TrekCompleteData> = {
     testimonials: SARU_TAK_TESTIMONIALS,
     gallery: SARU_TAK_GALLERY,
   },
-  Choptachandarshila: {
+  choptachandarshila: {
     trek: Chopta_CHANDARSHILA_TREK,
     itinerary: Chopta_CHANDARSHILA_ITINERARY,
     inclusions: Chopta_CHANDARSHILA_INCLUSIONS,

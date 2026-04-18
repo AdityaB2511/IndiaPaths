@@ -185,7 +185,7 @@ export default function TrekDetails() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <button
             onClick={() => window.history.back()}
-            className="flex items-center gap-2 text-white/90 hover:text-white transition-colors font-medium text-sm backdrop-blur-sm bg-white/10 rounded-full px-4 py-2"
+            className="flex items-center gap-2 text-white/90 hover:text-white transition-colors font-medium text-sm backdrop-blur-sm bg-black/50 rounded-full px-4 py-2"
           >
             <ArrowLeft size={16} />
             <span>All Treks</span>
@@ -193,7 +193,7 @@ export default function TrekDetails() {
           <div className="flex items-center gap-3">
             <button 
               onClick={handleShare}
-              className="backdrop-blur-sm bg-white/10 rounded-full p-2 text-white/90 hover:text-white hover:bg-white/20 transition-all"
+              className="backdrop-blur-sm bg-white/10 rounded-full p-2 bg-white/90  hover:text-white hover:bg-white/20 transition-all"
               title="Share this trek"
             >
               <Share2 size={18} />
