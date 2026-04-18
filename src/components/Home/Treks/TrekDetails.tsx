@@ -39,6 +39,7 @@ export default function TrekDetails() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [expandedDay, setExpandedDay] = useState(0);
   const [navBg, setNavBg] = useState('transparent');
+  const [shareMessage, setShareMessage] = useState('');
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Fetch trek data based on query parameter
@@ -95,6 +96,51 @@ export default function TrekDetails() {
     }
   };
 
+  const handleShare = async () => {
+    const shareUrl = window.location.href;
+    const shareTitle = `Check out ${trekData?.trek.name} - Amazing Trek in India!`;
+    const shareText = trekData?.trek.tagline || 'Join me on this incredible trek!';
+
+    // Try native Web Share API first (mobile)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          text: shareText,
+          url: shareUrl,
+        });
+        setShareMessage('Shared successfully!');
+        setTimeout(() => setShareMessage(''), 2000);
+      } catch (err) {
+        // User cancelled the share dialog, don't show error
+        if ((err as Error).name !== 'AbortError') {
+          handleCopyToClipboard(shareUrl);
+        }
+      }
+    } else {
+      // Fallback: Copy URL to clipboard
+      handleCopyToClipboard(shareUrl);
+    }
+  };
+
+  const handleCopyToClipboard = async (url: string) => {
+    try {
+      await navigator.clipboard.writeText(url);
+      setShareMessage('Link copied to clipboard!');
+      setTimeout(() => setShareMessage(''), 2000);
+    } catch {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = url;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setShareMessage('Link copied to clipboard!');
+      setTimeout(() => setShareMessage(''), 2000);
+    }
+  };
+
   const handleCTA = () => {
     alert('Trek booking request sent!');
   };
@@ -147,18 +193,23 @@ export default function TrekDetails() {
             <span>All Treks</span>
           </button>
           <div className="flex items-center gap-3">
-            <button className="backdrop-blur-sm bg-white/10 rounded-full p-2 text-white/90 hover:text-white hover:bg-white/20 transition-all">
-              <Share2 size={18} />
-            </button>
-            <button
-              onClick={() => setBookmarked(!bookmarked)}
+            <button 
+              onClick={handleShare}
               className="backdrop-blur-sm bg-white/10 rounded-full p-2 text-white/90 hover:text-white hover:bg-white/20 transition-all"
+              title="Share this trek"
             >
-              <Bookmark size={18} fill={bookmarked ? 'white' : 'none'} />
+              <Share2 size={18} />
             </button>
           </div>
         </div>
       </nav>
+
+      {/* Share Message Notification */}
+      {shareMessage && (
+        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 bg-forest-700 text-white px-6 py-3 rounded-full shadow-lg animate-in">
+          {shareMessage}
+        </div>
+      )}
 
       {/* Hero Section */}
       <header className="hero-gradient relative overflow-hidden" style={{ minHeight: '520px' }}>
@@ -181,10 +232,10 @@ export default function TrekDetails() {
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-4 animate-in delay-1">
             {trekData.trek.name}
           </h1>
-          <p className="text-white/70 text-lg sm:text-xl max-w-2xl mb-8 font-light animate-in delay-2">
+          <p className="text-white/70 text-lg sm:text-xl max-w-2xl mb-8 font-light animate-in delay-2 text-center mx-auto">
             {trekData.trek.tagline}
           </p>
-          <div className="flex flex-wrap gap-4 animate-in delay-3">
+          <div className="flex flex-wrap gap-4 animate-in delay-3 justify-center">
             <div className="flex items-center gap-2 text-white/80 text-sm">
               <MapPin size={16} />
               <span>{trekData.trek.location}</span>
@@ -434,7 +485,7 @@ export default function TrekDetails() {
       {/* Essential Information */}
       <section className="bg-forest-900 text-white py-16 mb-0">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <h2 className="font-display text-3xl font-bold mb-8 text-center">Essential Information</h2>
+          <h2 className="font-display text-3xl font-bold mb-8 text-center text-white">Essential Information</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
               <div className="flex items-center gap-3 mb-3">

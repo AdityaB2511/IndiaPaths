@@ -333,32 +333,7 @@ export const KEDARKANTHA_EXCLUSIONS: string[] = [
   'Anything not mentioned in inclusions',
 ];
 
-export const KEDARKANTHA_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Amit Sharma',
-    location: 'Delhi',
-    rating: 5,
-    text: 'Amazing trek with incredible summit views! The snow was pristine and the trek was well-organized. Highly recommended for all adventure lovers!',
-    avatar: 'AS',
-    date: 'Jun 2024',
-  },
-  {
-    name: 'Divya Gupta',
-    location: 'Noida',
-    rating: 5,
-    text: 'Breathtaking experience! The guides were knowledgeable and the camping experience was comfortable. Worth every penny!',
-    avatar: 'DG',
-    date: 'May 2024',
-  },
-  {
-    name: 'Ravi Patel',
-    location: 'Gurgaon',
-    rating: 4,
-    text: 'Great trek with amazing views of snow-capped peaks. The difficulty level is moderate which made it enjoyable for me.',
-    avatar: 'RP',
-    date: 'Jun 2024',
-  },
-];
+export const KEDARKANTHA_TESTIMONIALS: Testimonial[] = [];
 
 export const KEDARKANTHA_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -445,32 +420,7 @@ export const VALLEY_OF_FLOWERS_EXCLUSIONS: string[] = [
   'Any personal expenses',
 ];
 
-export const VALLEY_OF_FLOWERS_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Priya Jain',
-    location: 'Bangalore',
-    rating: 5,
-    text: 'Simply magical! The valley was full of flowers and the natural beauty was breathtaking. Best trek experience of my life!',
-    avatar: 'PJ',
-    date: 'Aug 2024',
-  },
-  {
-    name: 'Arun Nair',
-    location: 'Kerala',
-    rating: 5,
-    text: 'A paradise on earth! The wildflowers, the clean air, and the experienced guides made this trek unforgettable.',
-    avatar: 'AN',
-    date: 'Jul 2024',
-  },
-  {
-    name: 'Meera Desai',
-    location: 'Pune',
-    rating: 5,
-    text: 'Absolutely stunning! The colors, the fragrance, everything is perfect. I recommend this to everyone who loves nature.',
-    avatar: 'MD',
-    date: 'Aug 2024',
-  },
-];
+export const VALLEY_OF_FLOWERS_TESTIMONIALS: Testimonial[] = [];
 
 export const VALLEY_OF_FLOWERS_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -564,32 +514,7 @@ export const HAR_KI_DUN_EXCLUSIONS: string[] = [
   'Anything not mentioned in inclusions',
 ];
 
-export const HAR_KI_DUN_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Ananya Verma',
-    location: 'Delhi',
-    rating: 5,
-    text: 'Har Ki Dun is pure magic! The valley completely stole my heart. Less crowded than other treks, with pristine beauty. Highly recommended!',
-    avatar: 'AV',
-    date: 'Oct 2024',
-  },
-  {
-    name: 'Rohan Tiwari',
-    location: 'Bangalore',
-    rating: 5,
-    text: 'Perfect trek for someone looking to escape crowds. The forests are dense and beautiful, and the locals are incredibly warm and welcoming.',
-    avatar: 'RT',
-    date: 'Sep 2024',
-  },
-  {
-    name: 'Priya Singh',
-    location: 'Pune',
-    rating: 4,
-    text: 'Stunning valley with spiritual vibes. The altitude is manageable and the trek is well-organized. Will definitely come back to explore more!',
-    avatar: 'PS',
-    date: 'Aug 2024',
-  },
-];
+export const HAR_KI_DUN_TESTIMONIALS: Testimonial[] = [];
 
 export const HAR_KI_DUN_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -662,32 +587,7 @@ export const TRIUND_EXCLUSIONS: string[] = [
   'Any personal expenses',
 ];
 
-export const TRIUND_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Vikram Singh',
-    location: 'Delhi',
-    rating: 5,
-    text: 'Triund exceeded all my expectations! The sunrise view was absolutely magical. The trek is perfect for beginners and the guides were super friendly and informative.',
-    avatar: 'VS',
-    date: 'Nov 2024',
-  },
-  {
-    name: 'Neha Patel',
-    location: 'Mumbai',
-    rating: 5,
-    text: 'Best weekend getaway! The views are incredible, the camping experience was comfortable, and the food was delicious. Will definitely come back!',
-    avatar: 'NP',
-    date: 'Oct 2024',
-  },
-  {
-    name: 'Arjun Kumar',
-    location: 'Bangalore',
-    rating: 4,
-    text: 'Great trek with amazing views. A bit crowded during peak season but absolutely worth it. The McLeod Ganj town is also very charming to explore.',
-    avatar: 'AK',
-    date: 'Sep 2024',
-  },
-];
+export const TRIUND_TESTIMONIALS: Testimonial[] = [];
 
 export const TRIUND_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&h=600&fit=crop',
@@ -774,24 +674,7 @@ export const HAMPTA_PASS_EXCLUSIONS: string[] = [
   'Any personal expenses',
 ];
 
-export const HAMPTA_PASS_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Kabir Singh',
-    location: 'Chandigarh',
-    rating: 4,
-    text: 'Amazing trek with unique landscape changes. The contrast between the green valley and desert is striking!',
-    avatar: 'KS',
-    date: 'Aug 2024',
-  },
-  {
-    name: 'Simran Kaur',
-    location: 'Punjab',
-    rating: 5,
-    text: 'Best trek for experiencing two different ecosystems. Highly recommend to adventure enthusiasts!',
-    avatar: 'SK',
-    date: 'Jul 2024',
-  },
-];
+export const HAMPTA_PASS_TESTIMONIALS: Testimonial[] = [];
 
 export const HAMPTA_PASS_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -875,24 +758,7 @@ export const BALLI_PASS_EXCLUSIONS: string[] = [
   'Anything not mentioned in inclusions',
 ];
 
-export const BALLI_PASS_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Rahul Mahajan',
-    location: 'Chandigarh',
-    rating: 5,
-    text: 'Amazing trek with beautiful views and minimal crowds. The guides were knowledgeable and made the experience memorable!',
-    avatar: 'RM',
-    date: 'Sep 2024',
-  },
-  {
-    name: 'Neha Singh',
-    location: 'Delhi',
-    rating: 4,
-    text: 'Great trek for intermediate hikers. The valley scenery is stunning and the locals are very welcoming.',
-    avatar: 'NS',
-    date: 'Aug 2024',
-  },
-];
+export const BALLI_PASS_TESTIMONIALS: Testimonial[] = [];
 
 export const BALLI_PASS_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -959,16 +825,7 @@ export const LEKHA_TOP_EXCLUSIONS: string[] = [
   'Meals before/after trek',
 ];
 
-export const LEKHA_TOP_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Priya Sharma',
-    location: 'Bangalore',
-    rating: 4,
-    text: 'Perfect weekend trek! Short but scenic. Great for beginners and the guides are very supportive.',
-    avatar: 'PS',
-    date: 'Jul 2024',
-  },
-];
+export const LEKHA_TOP_TESTIMONIALS: Testimonial[] = [];
 
 export const LEKHA_TOP_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1040,16 +897,7 @@ export const DEVKAYARA_BHUGYA_EXCLUSIONS: string[] = [
   'Tips and personal expenses',
 ];
 
-export const DEVKAYARA_BHUGYA_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Arjun Verma',
-    location: 'Pune',
-    rating: 5,
-    text: 'Spiritual and scenic! The ancient ruins are fascinating and the plateau views are incredible.',
-    avatar: 'AV',
-    date: 'May 2024',
-  },
-];
+export const DEVKAYARA_BHUGYA_TESTIMONIALS: Testimonial[] = [];
 
 export const DEVKAYARA_BHUGYA_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1136,16 +984,7 @@ export const BHARADSAR_EXCLUSIONS: string[] = [
   'Altitude sickness medication',
 ];
 
-export const BHARADSAR_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Vikas Chopra',
-    location: 'Mumbai',
-    rating: 5,
-    text: 'Epic high-altitude adventure! The lake is absolutely stunning. Challenge accepted and completed!',
-    avatar: 'VC',
-    date: 'Aug 2024',
-  },
-];
+export const BHARADSAR_TESTIMONIALS: Testimonial[] = [];
 
 export const BHARADSAR_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1216,16 +1055,7 @@ export const VIJAY_TOP_EXCLUSIONS: string[] = [
   'Tips and personal expenses',
 ];
 
-export const VIJAY_TOP_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Simran Patel',
-    location: 'Ahmedabad',
-    rating: 5,
-    text: 'Victory indeed! The summit views are breathtaking. Best trek for moderate difficulty with big rewards!',
-    avatar: 'SP',
-    date: 'Jul 2024',
-  },
-];
+export const VIJAY_TOP_TESTIMONIALS: Testimonial[] = [];
 
 export const VIJAY_TOP_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1303,16 +1133,7 @@ export const DHOKA_TOP_EXCLUSIONS: string[] = [
   'Tips and personal expenses',
 ];
 
-export const DHOKA_TOP_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Amar Singh',
-    location: 'Jaipur',
-    rating: 4,
-    text: 'Beautiful ridge trek with stunning views. Forests are pristine and guides are knowledgeable.',
-    avatar: 'AS',
-    date: 'Jun 2024',
-  },
-];
+export const DHOKA_TOP_TESTIMONIALS: Testimonial[] = [];
 
 export const DHOKA_TOP_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1407,24 +1228,7 @@ export const GOMUKH_TAPOVAN_EXCLUSIONS: string[] = [
   'Altitude sickness medication',
 ];
 
-export const GOMUKH_TAPOVAN_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Rajesh Rao',
-    location: 'Bengaluru',
-    rating: 5,
-    text: 'Spiritual journey of a lifetime! Reached the source of Bhagirathi. Highly rewarding and challenging trek!',
-    avatar: 'RR',
-    date: 'Aug 2024',
-  },
-  {
-    name: 'Sakshi Verma',
-    location: 'Delhi',
-    rating: 5,
-    text: 'Amazing pilgrimage trek. The spiritual atmosphere is unforgettable. Best decision ever!',
-    avatar: 'SV',
-    date: 'Jul 2024',
-  },
-];
+export const GOMUKH_TAPOVAN_TESTIMONIALS: Testimonial[] = [];
 
 export const GOMUKH_TAPOVAN_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1503,16 +1307,7 @@ export const BORASU_PASS_EXCLUSIONS: string[] = [
   'Tips and personal expenses',
 ];
 
-export const BORASU_PASS_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Harpreet Singh',
-    location: 'Chandigarh',
-    rating: 5,
-    text: 'Incredible high-altitude adventure! The glacier views are spectacular. Challenging but worth every step!',
-    avatar: 'HS',
-    date: 'Aug 2024',
-  },
-];
+export const BORASU_PASS_TESTIMONIALS: Testimonial[] = [];
 
 export const BORASU_PASS_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1590,16 +1385,7 @@ export const PHULARA_RIDGE_EXCLUSIONS: string[] = [
   'Tips and personal expenses',
 ];
 
-export const PHULARA_RIDGE_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Isha Kapoor',
-    location: 'Delhi',
-    rating: 5,
-    text: 'Beautiful ridge trek! Forests are pristine and views are amazing. Feel like walking on clouds!',
-    avatar: 'IK',
-    date: 'Jun 2024',
-  },
-];
+export const PHULARA_RIDGE_TESTIMONIALS: Testimonial[] = [];
 
 export const PHULARA_RIDGE_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1670,16 +1456,7 @@ export const SARU_TAK_EXCLUSIONS: string[] = [
   'Tips and personal expenses',
 ];
 
-export const SARU_TAK_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Tanvi Sharma',
-    location: 'Noida',
-    rating: 4,
-    text: 'Peaceful trek with beautiful meadows. Great for those who want to avoid crowds. Loved it!',
-    avatar: 'TS',
-    date: 'Aug 2024',
-  },
-];
+export const SARU_TAK_TESTIMONIALS: Testimonial[] = [];
 
 export const SARU_TAK_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1743,16 +1520,7 @@ export const CHOTA_CHANDARSHILA_EXCLUSIONS: string[] = [
   'Tips and personal expenses',
 ];
 
-export const CHOTA_CHANDARSHILA_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Ankur Sharma',
-    location: 'Gurgaon',
-    rating: 4,
-    text: 'Perfect short trek! Easy difficulty but breathtaking views. Great for family trekking!',
-    avatar: 'AS',
-    date: 'May 2024',
-  },
-];
+export const CHOTA_CHANDARSHILA_TESTIMONIALS: Testimonial[] = [];
 
 export const CHOTA_CHANDARSHILA_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1809,24 +1577,7 @@ export const NAG_TIBBA_EXCLUSIONS: string[] = [
   'Tips and personal expenses',
 ];
 
-export const NAG_TIBBA_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Deepak Malik',
-    location: 'Delhi',
-    rating: 4,
-    text: 'Perfect quick weekend trek! Very close to Delhi. Beautiful views and misty mornings. Loved it!',
-    avatar: 'DM',
-    date: 'Nov 2024',
-  },
-  {
-    name: 'Kavya Desai',
-    location: 'Bangalore',
-    rating: 5,
-    text: 'Amazing quick trek! Best sunrise ever. Highly recommended for beginners!',
-    avatar: 'KD',
-    date: 'Dec 2024',
-  },
-];
+export const NAG_TIBBA_TESTIMONIALS: Testimonial[] = [];
 
 export const NAG_TIBBA_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -1905,24 +1656,7 @@ export const KUARI_PASS_EXCLUSIONS: string[] = [
   'Tips and personal expenses',
 ];
 
-export const KUARI_PASS_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Vikram Nair',
-    location: 'Cochin',
-    rating: 5,
-    text: 'Outstanding trek! Views of multiple peaks are incredible. Nanda Devi from the pass was unforgettable!',
-    avatar: 'VN',
-    date: 'May 2024',
-  },
-  {
-    name: 'Priyanka Gupta',
-    location: 'Delhi',
-    rating: 5,
-    text: 'Absolutely breathtaking! The pass crossing was epic. One of the best treks ever!',
-    avatar: 'PG',
-    date: 'Oct 2024',
-  },
-];
+export const KUARI_PASS_TESTIMONIALS: Testimonial[] = [];
 
 export const KUARI_PASS_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -2028,32 +1762,7 @@ export const KASHMIR_GREAT_LAKES_EXCLUSIONS: string[] = [
   'Any personal activities or expenses',
 ];
 
-export const KASHMIR_GREAT_LAKES_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Rohan Kapoor',
-    location: 'Mumbai',
-    rating: 5,
-    text: 'Trek through paradise! Each lake is more beautiful than the last. Absolutely magical experience. Highly recommended!',
-    avatar: 'RK',
-    date: 'Aug 2024',
-  },
-  {
-    name: 'Anita Menon',
-    location: 'Chennai',
-    rating: 5,
-    text: 'Most stunning trek ever! The lakes are pristine and reflections of peaks are breathtaking. Worth every step!',
-    avatar: 'AM',
-    date: 'Jul 2024',
-  },
-  {
-    name: 'Arjun Deshmukh',
-    location: 'Pune',
-    rating: 5,
-    text: 'Paradise on earth! Challenging but incredibly rewarding. Every moment was precious. Will definitely repeat!',
-    avatar: 'AD',
-    date: 'Sep 2024',
-  },
-];
+export const KASHMIR_GREAT_LAKES_TESTIMONIALS: Testimonial[] = [];
 
 export const KASHMIR_GREAT_LAKES_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -2135,16 +1844,7 @@ export const SAR_PASS_EXCLUSIONS: string[] = [
   'Tips and personal expenses',
 ];
 
-export const SAR_PASS_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Sanjay Verma',
-    location: 'Delhi',
-    rating: 5,
-    text: 'Epic glacial trek! The pass crossing was thrilling. Stunning alpine scenery throughout!',
-    avatar: 'SV',
-    date: 'Aug 2024',
-  },
-];
+export const SAR_PASS_TESTIMONIALS: Testimonial[] = [];
 
 export const SAR_PASS_GALLERY: string[] = [
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
