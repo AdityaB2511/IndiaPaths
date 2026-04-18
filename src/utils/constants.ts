@@ -1,6 +1,11 @@
 // ============================================
 // TREK LIST DATA
 // ============================================
+import Harkidunhomepage from "../assets/Treks/HarKiDhun/Harkidunhomepage.jpeg";
+import valleyofflowerstrek from "../assets/Treks/ValleyofFlowers/valleyofFlowers.png"
+import trimud from "../assets/Treks/trimud/trimud.png";
+import balipasshomepage from "../assets/Treks/baliPass/balipasshomepage.png";
+import hamptaPasshomepage from "../assets/Treks/HamptaPass/hamptaPassHomePage.jpeg";
 export const TREK_DATA: Trek[] = [
   {
     id: 1,
@@ -21,6 +26,7 @@ export const TREK_DATA: Trek[] = [
     price: 7999,
     popularity: "Trending",
     uniqueName: "valleyofflowerstrek",
+    image: valleyofflowerstrek,
   },
   {
     id: 3,
@@ -31,6 +37,7 @@ export const TREK_DATA: Trek[] = [
     price: 6999,
     popularity: "Popular",
     uniqueName: "hamptapass",
+    image:hamptaPasshomepage
   },
   {
     id: 4,
@@ -41,6 +48,7 @@ export const TREK_DATA: Trek[] = [
     price: 4999,
     popularity: "Popular",
     uniqueName: "triund",
+    image:trimud
   },
   {
     id: 5,
@@ -51,6 +59,7 @@ export const TREK_DATA: Trek[] = [
     price: 9999,
     popularity: "Popular",
     uniqueName: "harkidhun",
+    image: Harkidunhomepage,
   },
   {
     id: 6,
@@ -61,6 +70,7 @@ export const TREK_DATA: Trek[] = [
     price: 7499,
     popularity: "Popular",
     uniqueName: "ballipass",
+    image : balipasshomepage
   },
   {
     id: 7,
@@ -213,6 +223,7 @@ export interface Trek {
   price: number;
   popularity: string;
   uniqueName: string;
+  image?: string;
 }
 
 // ============================================
