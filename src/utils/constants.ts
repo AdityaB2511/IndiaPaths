@@ -42,6 +42,166 @@ export const TREK_DATA: Trek[] = [
     popularity: "Popular",
     uniqueName: "triund",
   },
+  {
+    id: 5,
+    name: "Har Ki Dun Trek",
+    duration: "6 Days",
+    description: "Trek through sacred valley with pristine alpine meadows and wildflowers",
+    state: "Himachal Pradesh",
+    price: 9999,
+    popularity: "Popular",
+    uniqueName: "harkidhun",
+  },
+  {
+    id: 6,
+    name: "Balli Pass Trek",
+    duration: "5 Days",
+    description: "Scenic pass trek with stunning views of Himalayan peaks",
+    state: "Himachal Pradesh",
+    price: 7499,
+    popularity: "Popular",
+    uniqueName: "ballipass",
+  },
+  {
+    id: 7,
+    name: "Lekha Top Trek",
+    duration: "3 Days",
+    description: "Short alpine trek with panoramic mountain vistas",
+    state: "Uttarakhand",
+    price: 5499,
+    popularity: "Emerging",
+    uniqueName: "lekhattop",
+  },
+  {
+    id: 8,
+    name: "Devkayara Bhugya Trek",
+    duration: "4 Days",
+    description: "Explore the scenic plateau with ancient temple ruins",
+    state: "Uttarakhand",
+    price: 6999,
+    popularity: "Popular",
+    uniqueName: "devkayarabhugya",
+  },
+  {
+    id: 9,
+    name: "Bharadsar Trek",
+    duration: "6 Days",
+    description: "High-altitude trek with pristine lakes and alpine meadows",
+    state: "Himachal Pradesh",
+    price: 8999,
+    popularity: "Popular",
+    uniqueName: "bharadsartrek",
+  },
+  {
+    id: 10,
+    name: "Vijay Top Trek",
+    duration: "4 Days",
+    description: "Summit trek with 360-degree Himalayan views",
+    state: "Himachal Pradesh",
+    price: 7299,
+    popularity: "Popular",
+    uniqueName: "vijaytop",
+  },
+  {
+    id: 11,
+    name: "Dhoka Top Trek",
+    duration: "5 Days",
+    description: "Scenic ridge trek through pine forests and alpine beauty",
+    state: "Himachal Pradesh",
+    price: 6899,
+    popularity: "Popular",
+    uniqueName: "dhokatop",
+  },
+  {
+    id: 12,
+    name: "Gomukh Tapovan Trek",
+    duration: "7 Days",
+    description: "Sacred pilgrimage trek to the source of river Bhagirathi",
+    state: "Uttarakhand",
+    price: 10999,
+    popularity: "Trending",
+    uniqueName: "gomukhтapovan",
+  },
+  {
+    id: 13,
+    name: "Borasu Pass Trek",
+    duration: "5 Days",
+    description: "High-altitude pass trek with stunning glacial views",
+    state: "Himachal Pradesh",
+    price: 8699,
+    popularity: "Popular",
+    uniqueName: "borasupass",
+  },
+  {
+    id: 14,
+    name: "Phulara Ridge Trek",
+    duration: "5 Days",
+    description: "Ridge trek through pristine forests with valley views",
+    state: "Himachal Pradesh",
+    price: 7199,
+    popularity: "Popular",
+    uniqueName: "phulararidge",
+  },
+  {
+    id: 15,
+    name: "Saru Tak Trek",
+    duration: "4 Days",
+    description: "Scenic alpine trek through verdant meadows",
+    state: "Himachal Pradesh",
+    price: 6599,
+    popularity: "Emerging",
+    uniqueName: "sarutak",
+  },
+  {
+    id: 16,
+    name: "Chota Chandarshila Trek",
+    duration: "3 Days",
+    description: "Short alpine trek with panoramic peak views",
+    state: "Uttarakhand",
+    price: 5299,
+    popularity: "Popular",
+    uniqueName: "chotachandarshila",
+  },
+  {
+    id: 17,
+    name: "Nag Tibba Trek",
+    duration: "2 Days",
+    description: "Quick mountain escape with misty meadows and viewpoints",
+    state: "Uttarakhand",
+    price: 3999,
+    popularity: "Popular",
+    uniqueName: "nagtibba",
+  },
+  {
+    id: 18,
+    name: "Kuari Pass Trek",
+    duration: "5 Days",
+    description: "High pass trek with views of multiple Himalayan summits",
+    state: "Uttarakhand",
+    price: 8199,
+    popularity: "Popular",
+    uniqueName: "kuaripass",
+  },
+  {
+    id: 19,
+    name: "Kashmir Great Lakes Trek",
+    duration: "8 Days",
+    description: "Trek through pristine alpine lakes in the paradise Kashmir",
+    state: "Jammu & Kashmir",
+    price: 12999,
+    popularity: "Trending",
+    uniqueName: "kashmirgreaklakes",
+  },
+  {
+    id: 20,
+    name: "Sar Pass Trek",
+    duration: "5 Days",
+    description: "High-altitude pass trek with stunning glacier views",
+    state: "Himachal Pradesh",
+    price: 8399,
+    popularity: "Popular",
+    uniqueName: "sarpass",
+  },
 ];
 
 export interface Trek {
@@ -640,6 +800,1358 @@ export const HAMPTA_PASS_GALLERY: string[] = [
 ];
 
 // ============================================
+// BALLI PASS TREK DATA
+// ============================================
+export const BALLI_PASS_TREK: TrekDetail = {
+  name: 'Balli Pass Trek',
+  tagline:
+    'Cross scenic alpine passes with panoramic views of snow-capped Himalayan peaks.',
+  description:
+    'The Balli Pass Trek is a moderate-level trek that takes you through beautiful alpine meadows and dense forests. The trek provides stunning views of multiple Himalayan peaks and offers an authentic mountain experience with minimal crowds. Starting from Tirthan Valley, you traverse through lush green meadows and cross the scenic Balli Pass at 3,580 meters.\n\nThis trek combines natural beauty with cultural experiences, offering opportunities to interact with local shepherds and experience authentic Himalayan hospitality. The landscape shifts dramatically from dense forests to open alpine meadows as you gain altitude.',
+  difficulty: 'Moderate',
+  duration: '5 Days / 4 Nights',
+  distance: '38 km',
+  altitude: '3,580 m',
+  price: '₹7,499',
+  location: 'Himachal Pradesh',
+  bestSeason: 'Jun–Oct',
+  rating: 4.5,
+  reviews: 234,
+};
+
+export const BALLI_PASS_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Mandi to Tirthan Valley',
+    altitude: '1,200 m',
+    distance: '50 km drive',
+    desc: 'Drive from Mandi to Tirthan Valley. Explore the charming valley and prepare for the trek.',
+  },
+  {
+    day: 2,
+    title: 'Tirthan Valley to Seo Ropa',
+    altitude: '2,400 m',
+    distance: '10 km',
+    desc: 'Trek through dense rhododendron and oak forests. Cross streams and reach Seo Ropa.',
+  },
+  {
+    day: 3,
+    title: 'Seo Ropa to Balli Pass',
+    altitude: '3,580 m',
+    distance: '8 km',
+    desc: 'Ascend to the scenic Balli Pass. Experience panoramic views of Himalayan peaks.',
+  },
+  {
+    day: 4,
+    title: 'Balli Pass Exploration',
+    altitude: '3,580 m',
+    distance: '5 km',
+    desc: 'Explore the pass and surrounding alpine meadows. Enjoy sunrise/sunset views.',
+  },
+  {
+    day: 5,
+    title: 'Descent to Tirthan Valley',
+    altitude: '1,200 m',
+    distance: '18 km trek + drive',
+    desc: 'Trek down to Tirthan Valley. Drive back to Mandi.',
+  },
+];
+
+export const BALLI_PASS_INCLUSIONS: string[] = [
+  'All meals during the trek (vegetarian & non-vegetarian)',
+  'Camping in quality mountain tents with sleeping bags',
+  'Experienced trek leader & support staff',
+  'First aid kit & medical support',
+  'All permits and entry fees',
+  'Transport: Mandi ↔ Tirthan Valley & return',
+];
+
+export const BALLI_PASS_EXCLUSIONS: string[] = [
+  'Travel to and from Mandi',
+  'Personal trekking gear & clothing',
+  'Travel insurance (recommended)',
+  'Tips and personal expenses',
+  'Meals in Tirthan Valley',
+  'Anything not mentioned in inclusions',
+];
+
+export const BALLI_PASS_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Rahul Mahajan',
+    location: 'Chandigarh',
+    rating: 5,
+    text: 'Amazing trek with beautiful views and minimal crowds. The guides were knowledgeable and made the experience memorable!',
+    avatar: 'RM',
+    date: 'Sep 2024',
+  },
+  {
+    name: 'Neha Singh',
+    location: 'Delhi',
+    rating: 4,
+    text: 'Great trek for intermediate hikers. The valley scenery is stunning and the locals are very welcoming.',
+    avatar: 'NS',
+    date: 'Aug 2024',
+  },
+];
+
+export const BALLI_PASS_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// LEKHA TOP TREK DATA
+// ============================================
+export const LEKHA_TOP_TREK: TrekDetail = {
+  name: 'Lekha Top Trek',
+  tagline:
+    'A quick alpine escape to verdant meadows with stunning mountain vistas.',
+  description:
+    'Lekha Top is a short but rewarding trek perfect for weekend getaways and beginners. The trek takes you through beautiful alpine meadows, dense forests, and offers panoramic views of the surrounding peaks. Located in Uttarakhand, this trek is less crowded than other popular routes, making it ideal for those seeking solitude in nature.\n\nThe trek offers excellent opportunities for photography, bird watching, and connecting with nature. The approach through shepherd camps provides insights into local Himalayan lifestyle.',
+  difficulty: 'Easy',
+  duration: '3 Days / 2 Nights',
+  distance: '12 km',
+  altitude: '2,300 m',
+  price: '₹5,499',
+  location: 'Uttarakhand',
+  bestSeason: 'May–Oct',
+  rating: 4.4,
+  reviews: 156,
+};
+
+export const LEKHA_TOP_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Munsiyari to Darkot',
+    altitude: '1,800 m',
+    distance: '4 km trek + drive',
+    desc: 'Drive to Munsiyari and trek to Darkot. Explore the area.',
+  },
+  {
+    day: 2,
+    title: 'Darkot to Lekha Top',
+    altitude: '2,300 m',
+    distance: '6 km',
+    desc: 'Trek through alpine meadows to Lekha Top. Enjoy panoramic views.',
+  },
+  {
+    day: 3,
+    title: 'Lekha Top Descent',
+    altitude: '1,800 m',
+    distance: '6 km trek + drive',
+    desc: 'Trek down to Darkot. Drive back to Munsiyari.',
+  },
+];
+
+export const LEKHA_TOP_INCLUSIONS: string[] = [
+  'All meals during the trek (vegetarian & non-vegetarian)',
+  'Camping in comfortable tents',
+  'Experienced trek leader',
+  'First aid kit & basic medical support',
+  'Transport: Munsiyari ↔ Trek start point',
+];
+
+export const LEKHA_TOP_EXCLUSIONS: string[] = [
+  'Travel to and from Munsiyari',
+  'Personal trekking gear & clothing',
+  'Tips and personal expenses',
+  'Meals before/after trek',
+];
+
+export const LEKHA_TOP_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Priya Sharma',
+    location: 'Bangalore',
+    rating: 4,
+    text: 'Perfect weekend trek! Short but scenic. Great for beginners and the guides are very supportive.',
+    avatar: 'PS',
+    date: 'Jul 2024',
+  },
+];
+
+export const LEKHA_TOP_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// DEVKAYARA BHUGYA TREK DATA
+// ============================================
+export const DEVKAYARA_BHUGYA_TREK: TrekDetail = {
+  name: 'Devkayara Bhugya Trek',
+  tagline:
+    'Trek to a sacred plateau adorned with ancient temple ruins and pristine meadows.',
+  description:
+    'Devkayara Bhugya is a scenic trek to a sacred plateau in Uttarakhand, known for its ancient temple ruins and spiritual significance. The trek offers a unique blend of religious heritage and natural beauty. The plateau is surrounded by dense forests and offers stunning views of the surrounding mountains.\n\nThis trek is ideal for those seeking spiritual connection with nature while exploring historical and cultural heritage. The plateau is a popular pilgrimage site during specific seasons, making it an important cultural destination.',
+  difficulty: 'Moderate',
+  duration: '4 Days / 3 Nights',
+  distance: '20 km',
+  altitude: '2,550 m',
+  price: '₹6,999',
+  location: 'Uttarakhand',
+  bestSeason: 'Apr–Nov',
+  rating: 4.6,
+  reviews: 198,
+};
+
+export const DEVKAYARA_BHUGYA_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Deooria Tal to Base Camp',
+    altitude: '1,500 m',
+    distance: '40 km drive',
+    desc: 'Drive from Deooria Tal to the trek base. Acclimatize.',
+  },
+  {
+    day: 2,
+    title: 'Trek to Devkayara Bhugya',
+    altitude: '2,550 m',
+    distance: '8 km',
+    desc: 'Trek through forests to the sacred plateau. Visit ancient temple ruins.',
+  },
+  {
+    day: 3,
+    title: 'Plateau Exploration',
+    altitude: '2,550 m',
+    distance: '5 km',
+    desc: 'Explore the plateau and surrounding areas. Enjoy spiritual ambiance.',
+  },
+  {
+    day: 4,
+    title: 'Descent & Return',
+    altitude: '1,500 m',
+    distance: '8 km trek + 40 km drive',
+    desc: 'Trek down and return to starting point.',
+  },
+];
+
+export const DEVKAYARA_BHUGYA_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'Camping in quality tents',
+  'Trek leader & local guide',
+  'First aid kit & basic medical support',
+  'Transport to trek base',
+];
+
+export const DEVKAYARA_BHUGYA_EXCLUSIONS: string[] = [
+  'Travel to and from starting point',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+];
+
+export const DEVKAYARA_BHUGYA_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Arjun Verma',
+    location: 'Pune',
+    rating: 5,
+    text: 'Spiritual and scenic! The ancient ruins are fascinating and the plateau views are incredible.',
+    avatar: 'AV',
+    date: 'May 2024',
+  },
+];
+
+export const DEVKAYARA_BHUGYA_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// BHARADSAR TREK DATA
+// ============================================
+export const BHARADSAR_TREK: TrekDetail = {
+  name: 'Bharadsar Trek',
+  tagline:
+    'High-altitude trek to pristine lakes surrounded by alpine beauty.',
+  description:
+    'The Bharadsar Trek is a challenging high-altitude trek that takes you to pristine glacial lakes in Himachal Pradesh. The trek offers stunning views of multiple peaks and passes through diverse landscapes from forests to alpine meadows. Bharadsar is known for its serene lakes reflecting the surrounding mountains.\n\nThis trek is ideal for experienced trekkers seeking high-altitude adventure. The journey provides opportunities for photography and connecting with raw mountain wilderness.',
+  difficulty: 'Hard',
+  duration: '6 Days / 5 Nights',
+  distance: '48 km',
+  altitude: '4,500 m',
+  price: '₹8,999',
+  location: 'Himachal Pradesh',
+  bestSeason: 'Jul–Sep',
+  rating: 4.7,
+  reviews: 289,
+};
+
+export const BHARADSAR_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Kheerganga Base Camp',
+    altitude: '1,800 m',
+    distance: '50 km drive',
+    desc: 'Drive to Kheerganga base. Acclimatize.',
+  },
+  {
+    day: 2,
+    title: 'Trek to First Camp',
+    altitude: '2,800 m',
+    distance: '10 km',
+    desc: 'Trek through forests to first camp.',
+  },
+  {
+    day: 3,
+    title: 'High Altitude Trek',
+    altitude: '3,800 m',
+    distance: '12 km',
+    desc: 'Ascend to alpine meadows.',
+  },
+  {
+    day: 4,
+    title: 'Bharadsar Lake',
+    altitude: '4,500 m',
+    distance: '10 km',
+    desc: 'Reach the pristine Bharadsar Lake. Day for exploration.',
+  },
+  {
+    day: 5,
+    title: 'Lake Exploration',
+    altitude: '4,500 m',
+    distance: '8 km',
+    desc: 'Explore the lake and surrounding areas.',
+  },
+  {
+    day: 6,
+    title: 'Descent & Return',
+    altitude: '1,800 m',
+    distance: '16 km trek + drive',
+    desc: 'Trek down and return to base.',
+  },
+];
+
+export const BHARADSAR_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'High-altitude camping equipment',
+  'Experienced trek leader & guide',
+  'First aid kit & medical support',
+  'Oxygen support if needed',
+];
+
+export const BHARADSAR_EXCLUSIONS: string[] = [
+  'Travel to and from base',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+  'Altitude sickness medication',
+];
+
+export const BHARADSAR_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Vikas Chopra',
+    location: 'Mumbai',
+    rating: 5,
+    text: 'Epic high-altitude adventure! The lake is absolutely stunning. Challenge accepted and completed!',
+    avatar: 'VC',
+    date: 'Aug 2024',
+  },
+];
+
+export const BHARADSAR_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// VIJAY TOP TREK DATA
+// ============================================
+export const VIJAY_TOP_TREK: TrekDetail = {
+  name: 'Vijay Top Trek',
+  tagline:
+    'Summit a scenic peak for 360-degree Himalayan views and golden sunrises.',
+  description:
+    'Vijay Top is a scenic summit trek in Himachal Pradesh offering 360-degree panoramic views of the Himalayas. The trek is perfect for those seeking a moderate challenge with rewarding summit views. The name "Vijay" meaning victory, symbolizes the triumph of reaching the summit.\n\nThe trek passes through beautiful meadows, forests, and offers excellent photography opportunities. Clear days provide views of multiple major peaks in the region.',
+  difficulty: 'Moderate',
+  duration: '4 Days / 3 Nights',
+  distance: '24 km',
+  altitude: '3,450 m',
+  price: '₹7,299',
+  location: 'Himachal Pradesh',
+  bestSeason: 'Jun–Oct',
+  rating: 4.5,
+  reviews: 267,
+};
+
+export const VIJAY_TOP_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Base to Camp 1',
+    altitude: '2,200 m',
+    distance: '6 km',
+    desc: 'Trek from base camp through forests.',
+  },
+  {
+    day: 2,
+    title: 'Camp 1 to Camp 2',
+    altitude: '3,000 m',
+    distance: '8 km',
+    desc: 'Ascend through alpine meadows.',
+  },
+  {
+    day: 3,
+    title: 'Summit Day',
+    altitude: '3,450 m',
+    distance: '6 km',
+    desc: 'Early morning ascent to Vijay Top. Enjoy 360-degree views.',
+  },
+  {
+    day: 4,
+    title: 'Descent & Return',
+    altitude: '2,200 m',
+    distance: '12 km trek',
+    desc: 'Trek down to base.',
+  },
+];
+
+export const VIJAY_TOP_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'Camping in mountain tents',
+  'Trek leader & guide',
+  'First aid support',
+];
+
+export const VIJAY_TOP_EXCLUSIONS: string[] = [
+  'Travel to and from base',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+];
+
+export const VIJAY_TOP_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Simran Patel',
+    location: 'Ahmedabad',
+    rating: 5,
+    text: 'Victory indeed! The summit views are breathtaking. Best trek for moderate difficulty with big rewards!',
+    avatar: 'SP',
+    date: 'Jul 2024',
+  },
+];
+
+export const VIJAY_TOP_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// DHOKA TOP TREK DATA
+// ============================================
+export const DHOKA_TOP_TREK: TrekDetail = {
+  name: 'Dhoka Top Trek',
+  tagline:
+    'Ridge trek through pristine forests with valley views and alpine charm.',
+  description:
+    'Dhoka Top is a scenic ridge trek in Himachal Pradesh offering beautiful views of valleys and surrounding peaks. The trek passes through dense pine and deodar forests, pristine meadows, and offers excellent opportunities for nature lovers and photographers. The ridge provides natural viewpoints and camping locations.',
+  difficulty: 'Moderate',
+  duration: '5 Days / 4 Nights',
+  distance: '30 km',
+  altitude: '3,350 m',
+  price: '₹6,899',
+  location: 'Himachal Pradesh',
+  bestSeason: 'May–Oct',
+  rating: 4.4,
+  reviews: 201,
+};
+
+export const DHOKA_TOP_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Base to Forest Camp',
+    altitude: '2,000 m',
+    distance: '8 km',
+    desc: 'Trek through dense forests.',
+  },
+  {
+    day: 2,
+    title: 'Forest to Ridge',
+    altitude: '2,800 m',
+    distance: '7 km',
+    desc: 'Ascend to the ridge.',
+  },
+  {
+    day: 3,
+    title: 'Ridge Trek to Dhoka Top',
+    altitude: '3,350 m',
+    distance: '8 km',
+    desc: 'Trek along ridge with valley views.',
+  },
+  {
+    day: 4,
+    title: 'Exploration Day',
+    altitude: '3,350 m',
+    distance: '5 km',
+    desc: 'Explore the area and enjoy views.',
+  },
+  {
+    day: 5,
+    title: 'Descent',
+    altitude: '2,000 m',
+    distance: '15 km trek',
+    desc: 'Trek down to base.',
+  },
+];
+
+export const DHOKA_TOP_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'Camping in quality tents',
+  'Trek leader & guide',
+  'First aid support',
+];
+
+export const DHOKA_TOP_EXCLUSIONS: string[] = [
+  'Travel to and from base',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+];
+
+export const DHOKA_TOP_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Amar Singh',
+    location: 'Jaipur',
+    rating: 4,
+    text: 'Beautiful ridge trek with stunning views. Forests are pristine and guides are knowledgeable.',
+    avatar: 'AS',
+    date: 'Jun 2024',
+  },
+];
+
+export const DHOKA_TOP_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// GOMUKH TAPOVAN TREK DATA
+// ============================================
+export const GOMUKH_TAPOVAN_TREK: TrekDetail = {
+  name: 'Gomukh Tapovan Trek',
+  tagline:
+    'Sacred pilgrimage trek to the source of river Bhagirathi in the glacier flows.',
+  description:
+    'Gomukh Tapovan is a sacred pilgrimage trek to the source of the Bhagirathi River, one of the most important Hindu pilgrimage sites. The trek takes you through the Bhagirathi Valley at high altitude, passing through pristine forests, meadows, and finally reaching the Gomukh glacier. This is a spiritual and challenging trekking experience.\n\nThe trek combines religious significance with natural beauty, offering insights into Himalayan ecology and spirituality. This trek is ideal for those seeking spiritual connection and adventure at high altitude.',
+  difficulty: 'Hard',
+  duration: '7 Days / 6 Nights',
+  distance: '56 km',
+  altitude: '4,000 m',
+  price: '₹10,999',
+  location: 'Uttarakhand',
+  bestSeason: 'Jun–Oct',
+  rating: 4.8,
+  reviews: 412,
+};
+
+export const GOMUKH_TAPOVAN_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Haridwar to Uttarkashi',
+    altitude: '1,158 m',
+    distance: '150 km drive',
+    desc: 'Drive to Uttarkashi. Explore the sacred town.',
+  },
+  {
+    day: 2,
+    title: 'Uttarkashi to Hanauman Chatti',
+    altitude: '2,000 m',
+    distance: '25 km drive + 4 km trek',
+    desc: 'Drive and short trek to base camp.',
+  },
+  {
+    day: 3,
+    title: 'Hanauman Chatti to Bhoj Kharak',
+    altitude: '2,820 m',
+    distance: '10 km',
+    desc: 'Trek through Bhagirathi Valley forests.',
+  },
+  {
+    day: 4,
+    title: 'Bhoj Kharak to Tapovan',
+    altitude: '3,680 m',
+    distance: '9 km',
+    desc: 'Trek to Tapovan meadows.',
+  },
+  {
+    day: 5,
+    title: 'Tapovan to Gomukh',
+    altitude: '4,000 m',
+    distance: '8 km',
+    desc: 'Trek to Gomukh glacier, source of Bhagirathi.',
+  },
+  {
+    day: 6,
+    title: 'Gomukh Exploration',
+    altitude: '4,000 m',
+    distance: '5 km',
+    desc: 'Explore sacred sites and offer prayers.',
+  },
+  {
+    day: 7,
+    title: 'Descent & Return',
+    altitude: '1,158 m',
+    distance: '32 km trek + 150 km drive',
+    desc: 'Trek down and return to Haridwar.',
+  },
+];
+
+export const GOMUKH_TAPOVAN_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'High-altitude camping equipment',
+  'Experienced trek leader & guide',
+  'First aid kit & medical support',
+  'Oxygen support if needed',
+  'Permits and entry fees',
+];
+
+export const GOMUKH_TAPOVAN_EXCLUSIONS: string[] = [
+  'Travel to and from Haridwar',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+  'Altitude sickness medication',
+];
+
+export const GOMUKH_TAPOVAN_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Rajesh Rao',
+    location: 'Bengaluru',
+    rating: 5,
+    text: 'Spiritual journey of a lifetime! Reached the source of Bhagirathi. Highly rewarding and challenging trek!',
+    avatar: 'RR',
+    date: 'Aug 2024',
+  },
+  {
+    name: 'Sakshi Verma',
+    location: 'Delhi',
+    rating: 5,
+    text: 'Amazing pilgrimage trek. The spiritual atmosphere is unforgettable. Best decision ever!',
+    avatar: 'SV',
+    date: 'Jul 2024',
+  },
+];
+
+export const GOMUKH_TAPOVAN_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// BORASU PASS TREK DATA
+// ============================================
+export const BORASU_PASS_TREK: TrekDetail = {
+  name: 'Borasu Pass Trek',
+  tagline:
+    'High-altitude pass trek with panoramic glacier and peak views.',
+  description:
+    'The Borasu Pass Trek is a challenging high-altitude trek in Himachal Pradesh known for its stunning glacial views and panoramic vistas of major Himalayan peaks. The trek takes you above 4,000 meters, crossing the scenic Borasu Pass. This trek is ideal for experienced trekkers seeking high-altitude adventure.',
+  difficulty: 'Hard',
+  duration: '5 Days / 4 Nights',
+  distance: '42 km',
+  altitude: '4,200 m',
+  price: '₹8,699',
+  location: 'Himachal Pradesh',
+  bestSeason: 'Jul–Sep',
+  rating: 4.6,
+  reviews: 278,
+};
+
+export const BORASU_PASS_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Chitkul to Base Camp',
+    altitude: '2,600 m',
+    distance: '50 km drive + 4 km trek',
+    desc: 'Drive to Chitkul and trek to base camp.',
+  },
+  {
+    day: 2,
+    title: 'Base to High Camp',
+    altitude: '3,600 m',
+    distance: '12 km',
+    desc: 'Trek through alpine scenery.',
+  },
+  {
+    day: 3,
+    title: 'Borasu Pass Summit',
+    altitude: '4,200 m',
+    distance: '10 km',
+    desc: 'Cross the high pass with glacier views.',
+  },
+  {
+    day: 4,
+    title: 'Descent & Exploration',
+    altitude: '3,200 m',
+    distance: '12 km',
+    desc: 'Trek down to exploration camp.',
+  },
+  {
+    day: 5,
+    title: 'Return',
+    altitude: '2,600 m',
+    distance: '8 km trek + drive',
+    desc: 'Trek down and return to Chitkul.',
+  },
+];
+
+export const BORASU_PASS_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'High-altitude camping equipment',
+  'Trek leader & guide',
+  'First aid & medical support',
+];
+
+export const BORASU_PASS_EXCLUSIONS: string[] = [
+  'Travel to and from Chitkul',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+];
+
+export const BORASU_PASS_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Harpreet Singh',
+    location: 'Chandigarh',
+    rating: 5,
+    text: 'Incredible high-altitude adventure! The glacier views are spectacular. Challenging but worth every step!',
+    avatar: 'HS',
+    date: 'Aug 2024',
+  },
+];
+
+export const BORASU_PASS_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// PHULARA RIDGE TREK DATA
+// ============================================
+export const PHULARA_RIDGE_TREK: TrekDetail = {
+  name: 'Phulara Ridge Trek',
+  tagline:
+    'Ridge trek through pristine forests with stunning valley vistas.',
+  description:
+    'The Phulara Ridge Trek is a scenic ridge walk in Himachal Pradesh offering stunning views of valleys and surrounding mountains. The trek passes through dense forests of pine and deodar, providing a serene trekking experience. Phulara Ridge is known for its natural beauty and minimal crowds.',
+  difficulty: 'Moderate',
+  duration: '5 Days / 4 Nights',
+  distance: '35 km',
+  altitude: '3,300 m',
+  price: '₹7,199',
+  location: 'Himachal Pradesh',
+  bestSeason: 'May–Oct',
+  rating: 4.5,
+  reviews: 215,
+};
+
+export const PHULARA_RIDGE_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Base to Forest Camp',
+    altitude: '2,100 m',
+    distance: '8 km',
+    desc: 'Trek through dense forests.',
+  },
+  {
+    day: 2,
+    title: 'Forest to Ridge',
+    altitude: '2,900 m',
+    distance: '9 km',
+    desc: 'Ascend to Phulara Ridge.',
+  },
+  {
+    day: 3,
+    title: 'Ridge Trek',
+    altitude: '3,300 m',
+    distance: '8 km',
+    desc: 'Trek along ridge with valley views.',
+  },
+  {
+    day: 4,
+    title: 'Exploration Day',
+    altitude: '3,300 m',
+    distance: '5 km',
+    desc: 'Explore surroundings.',
+  },
+  {
+    day: 5,
+    title: 'Descent',
+    altitude: '2,100 m',
+    distance: '14 km trek',
+    desc: 'Trek down to base.',
+  },
+];
+
+export const PHULARA_RIDGE_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'Camping in quality tents',
+  'Trek leader & guide',
+  'First aid support',
+];
+
+export const PHULARA_RIDGE_EXCLUSIONS: string[] = [
+  'Travel to and from base',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+];
+
+export const PHULARA_RIDGE_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Isha Kapoor',
+    location: 'Delhi',
+    rating: 5,
+    text: 'Beautiful ridge trek! Forests are pristine and views are amazing. Feel like walking on clouds!',
+    avatar: 'IK',
+    date: 'Jun 2024',
+  },
+];
+
+export const PHULARA_RIDGE_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// SARU TAK TREK DATA
+// ============================================
+export const SARU_TAK_TREK: TrekDetail = {
+  name: 'Saru Tak Trek',
+  tagline:
+    'Alpine trek through verdant meadows with wildflowers and mountain charm.',
+  description:
+    'Saru Tak is a scenic alpine trek in Himachal Pradesh known for its beautiful meadows and minimal crowds. The trek offers stunning views of surrounding peaks and passes through areas rich with wildflowers during monsoon season. Perfect for nature lovers seeking a less crowded trekking experience.',
+  difficulty: 'Easy to Moderate',
+  duration: '4 Days / 3 Nights',
+  distance: '22 km',
+  altitude: '3,100 m',
+  price: '₹6,599',
+  location: 'Himachal Pradesh',
+  bestSeason: 'Jun–Oct',
+  rating: 4.4,
+  reviews: 189,
+};
+
+export const SARU_TAK_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Base to Camp 1',
+    altitude: '2,200 m',
+    distance: '6 km',
+    desc: 'Trek from base camp.',
+  },
+  {
+    day: 2,
+    title: 'Camp 1 to Saru Tak',
+    altitude: '3,100 m',
+    distance: '8 km',
+    desc: 'Trek through alpine meadows.',
+  },
+  {
+    day: 3,
+    title: 'Exploration Day',
+    altitude: '3,100 m',
+    distance: '5 km',
+    desc: 'Explore the area and enjoy views.',
+  },
+  {
+    day: 4,
+    title: 'Descent',
+    altitude: '2,200 m',
+    distance: '8 km trek',
+    desc: 'Trek down to base.',
+  },
+];
+
+export const SARU_TAK_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'Camping in mountain tents',
+  'Trek leader & guide',
+  'First aid support',
+];
+
+export const SARU_TAK_EXCLUSIONS: string[] = [
+  'Travel to and from base',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+];
+
+export const SARU_TAK_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Tanvi Sharma',
+    location: 'Noida',
+    rating: 4,
+    text: 'Peaceful trek with beautiful meadows. Great for those who want to avoid crowds. Loved it!',
+    avatar: 'TS',
+    date: 'Aug 2024',
+  },
+];
+
+export const SARU_TAK_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// CHOTA CHANDARSHILA TREK DATA
+// ============================================
+export const CHOTA_CHANDARSHILA_TREK: TrekDetail = {
+  name: 'Chota Chandarshila Trek',
+  tagline:
+    'Quick alpine trek through pristine meadows with panoramic peak views.',
+  description:
+    'Chota Chandarshila is a short but scenic alpine trek in Uttarakhand offering panoramic views of surrounding peaks. The trek is perfect for a quick weekend escape and is suitable for all age groups. The area is known for its pristine meadows and spotless natural environment.',
+  difficulty: 'Easy',
+  duration: '3 Days / 2 Nights',
+  distance: '14 km',
+  altitude: '2,680 m',
+  price: '₹5,299',
+  location: 'Uttarakhand',
+  bestSeason: 'Apr–Nov',
+  rating: 4.3,
+  reviews: 167,
+};
+
+export const CHOTA_CHANDARSHILA_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Chani to Camp',
+    altitude: '2,100 m',
+    distance: '5 km',
+    desc: 'Trek from Chani to first camp.',
+  },
+  {
+    day: 2,
+    title: 'Camp to Chota Chandarshila',
+    altitude: '2,680 m',
+    distance: '6 km',
+    desc: 'Trek to alpine meadows.',
+  },
+  {
+    day: 3,
+    title: 'Descent',
+    altitude: '2,100 m',
+    distance: '7 km trek',
+    desc: 'Trek down to Chani.',
+  },
+];
+
+export const CHOTA_CHANDARSHILA_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'Camping in comfortable tents',
+  'Trek leader & guide',
+  'First aid support',
+];
+
+export const CHOTA_CHANDARSHILA_EXCLUSIONS: string[] = [
+  'Travel to and from Chani',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+];
+
+export const CHOTA_CHANDARSHILA_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Ankur Sharma',
+    location: 'Gurgaon',
+    rating: 4,
+    text: 'Perfect short trek! Easy difficulty but breathtaking views. Great for family trekking!',
+    avatar: 'AS',
+    date: 'May 2024',
+  },
+];
+
+export const CHOTA_CHANDARSHILA_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// NAG TIBBA TREK DATA
+// ============================================
+export const NAG_TIBBA_TREK: TrekDetail = {
+  name: 'Nag Tibba Trek',
+  tagline:
+    'Quick mountain escape with misty meadows and stunning viewpoints.',
+  description:
+    'Nag Tibba is the quickest mountain trek near Delhi, perfect for weekend adventures. The trek takes you through misty meadows and offers stunning views of the Himalayas. The name "Serpent Peak" refers to the shape of the mountain. This is an ideal trek for beginners and those short on time.',
+  difficulty: 'Easy',
+  duration: '2 Days / 1 Night',
+  distance: '10 km',
+  altitude: '2,444 m',
+  price: '₹3,999',
+  location: 'Uttarakhand',
+  bestSeason: 'Oct–May',
+  rating: 4.2,
+  reviews: 412,
+};
+
+export const NAG_TIBBA_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Nag Tibba Village Trek',
+    altitude: '2,444 m',
+    distance: '5 km',
+    desc: 'Trek from Nag Tibba village to the summit. Enjoy views and camping.',
+  },
+  {
+    day: 2,
+    title: 'Sunrise & Descent',
+    altitude: '1,500 m (base)',
+    distance: '5 km trek',
+    desc: 'Witness sunrise and trek down.',
+  },
+];
+
+export const NAG_TIBBA_INCLUSIONS: string[] = [
+  'Meals during the trek',
+  'Camping equipment',
+  'Trek guide',
+  'Basic first aid',
+];
+
+export const NAG_TIBBA_EXCLUSIONS: string[] = [
+  'Travel to and from Nag Tibba',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+];
+
+export const NAG_TIBBA_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Deepak Malik',
+    location: 'Delhi',
+    rating: 4,
+    text: 'Perfect quick weekend trek! Very close to Delhi. Beautiful views and misty mornings. Loved it!',
+    avatar: 'DM',
+    date: 'Nov 2024',
+  },
+  {
+    name: 'Kavya Desai',
+    location: 'Bangalore',
+    rating: 5,
+    text: 'Amazing quick trek! Best sunrise ever. Highly recommended for beginners!',
+    avatar: 'KD',
+    date: 'Dec 2024',
+  },
+];
+
+export const NAG_TIBBA_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// KUARI PASS TREK DATA
+// ============================================
+export const KUARI_PASS_TREK: TrekDetail = {
+  name: 'Kuari Pass Trek',
+  tagline:
+    'Cross a high Himalayan pass with views of multiple snow-capped peaks.',
+  description:
+    'The Kuari Pass Trek is one of the most spectacular high passes in Uttarakhand, offering views of multiple Himalayan peaks including Nanda Devi and Dronagiri. The trek takes you above 3,600 meters and is known for its stunning panoramic views and pristine alpine meadows. This trek offers an authentic high-altitude mountain experience.',
+  difficulty: 'Moderate to Hard',
+  duration: '5 Days / 4 Nights',
+  distance: '35 km',
+  altitude: '3,680 m',
+  price: '₹8,199',
+  location: 'Uttarakhand',
+  bestSeason: 'May–Jun, Sep–Oct',
+  rating: 4.7,
+  reviews: 356,
+};
+
+export const KUARI_PASS_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Auli to Forest Camp',
+    altitude: '2,500 m',
+    distance: '35 km drive + 5 km trek',
+    desc: 'Drive to Auli and trek to forest camp.',
+  },
+  {
+    day: 2,
+    title: 'Forest Camp to Alpine Camp',
+    altitude: '3,300 m',
+    distance: '10 km',
+    desc: 'Trek through forests to alpine meadows.',
+  },
+  {
+    day: 3,
+    title: 'Alpine Camp to Kuari Pass',
+    altitude: '3,680 m',
+    distance: '8 km',
+    desc: 'Trek to the high pass with peak views.',
+  },
+  {
+    day: 4,
+    title: 'Kuari Pass Exploration',
+    altitude: '3,680 m',
+    distance: '6 km',
+    desc: 'Explore the pass and surrounding views.',
+  },
+  {
+    day: 5,
+    title: 'Descent & Return',
+    altitude: '2,500 m',
+    distance: '12 km trek + 35 km drive',
+    desc: 'Trek down and return to Auli.',
+  },
+];
+
+export const KUARI_PASS_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'High-altitude camping equipment',
+  'Trek leader & guide',
+  'First aid & medical support',
+  'All permits and entry fees',
+];
+
+export const KUARI_PASS_EXCLUSIONS: string[] = [
+  'Travel to and from Auli',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+];
+
+export const KUARI_PASS_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Vikram Nair',
+    location: 'Cochin',
+    rating: 5,
+    text: 'Outstanding trek! Views of multiple peaks are incredible. Nanda Devi from the pass was unforgettable!',
+    avatar: 'VN',
+    date: 'May 2024',
+  },
+  {
+    name: 'Priyanka Gupta',
+    location: 'Delhi',
+    rating: 5,
+    text: 'Absolutely breathtaking! The pass crossing was epic. One of the best treks ever!',
+    avatar: 'PG',
+    date: 'Oct 2024',
+  },
+];
+
+export const KUARI_PASS_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// KASHMIR GREAT LAKES TREK DATA
+// ============================================
+export const KASHMIR_GREAT_LAKES_TREK: TrekDetail = {
+  name: 'Kashmir Great Lakes Trek',
+  tagline:
+    'Trek through paradise to pristine alpine lakes surrounded by snow-capped peaks.',
+  description:
+    'The Kashmir Great Lakes Trek is one of the most spectacular treks in India, often called the "trek through paradise." This 8-day journey takes you through multiple pristine alpine lakes including Vishansar, Aharbal, Satsar, and Gadsar. Each lake has its own unique beauty and charm.\n\nThe trek passes through diverse landscapes - dense forests, alpine meadows, and high-altitude lakes reflecting surrounding mountains. This trek is ideal for experienced trekkers seeking the ultimate Himalayan adventure in one of India\'s most beautiful regions.',
+  difficulty: 'Hard',
+  duration: '8 Days / 7 Nights',
+  distance: '70 km',
+  altitude: '4,300 m',
+  price: '₹12,999',
+  location: 'Jammu & Kashmir',
+  bestSeason: 'Jul–Sep',
+  rating: 4.9,
+  reviews: 523,
+};
+
+export const KASHMIR_GREAT_LAKES_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Srinagar to Sonamarg',
+    altitude: '2,730 m',
+    distance: '80 km drive',
+    desc: 'Drive to Sonamarg. Acclimatize and prepare.',
+  },
+  {
+    day: 2,
+    title: 'Sonamarg to Vishansar Lake',
+    altitude: '3,650 m',
+    distance: '12 km',
+    desc: 'Trek through forests to first lake camp.',
+  },
+  {
+    day: 3,
+    title: 'Vishansar to Aharbal Lake',
+    altitude: '3,550 m',
+    distance: '10 km',
+    desc: 'Trek between lakes with stunning views.',
+  },
+  {
+    day: 4,
+    title: 'Aharbal to Satsar Lakes',
+    altitude: '3,650 m',
+    distance: '12 km',
+    desc: 'Trek to multiple Satsar lakes.',
+  },
+  {
+    day: 5,
+    title: 'Satsar Exploration',
+    altitude: '3,650 m',
+    distance: '7 km',
+    desc: 'Explore the beautiful Satsar cluster.',
+  },
+  {
+    day: 6,
+    title: 'Satsar to Gadsar Lake',
+    altitude: '3,600 m',
+    distance: '11 km',
+    desc: 'Trek to the stunning Gadsar lake.',
+  },
+  {
+    day: 7,
+    title: 'Gadsar to Marsar',
+    altitude: '3,450 m',
+    distance: '12 km',
+    desc: 'Trek to Marsar with valley views.',
+  },
+  {
+    day: 8,
+    title: 'Marsar Descent & Return',
+    altitude: '2,730 m',
+    distance: '12 km trek + 80 km drive',
+    desc: 'Trek down and return to Srinagar.',
+  },
+];
+
+export const KASHMIR_GREAT_LAKES_INCLUSIONS: string[] = [
+  'All meals during the trek (vegetarian & non-vegetarian)',
+  'High-altitude camping equipment with quality tents',
+  'Experienced trek leader & support staff',
+  'First aid kit & medical support',
+  'All permits and entry fees',
+  'Horse support for carrying luggage',
+  'Guide for all days',
+];
+
+export const KASHMIR_GREAT_LAKES_EXCLUSIONS: string[] = [
+  'Travel to and from Srinagar',
+  'Personal trekking gear & clothing',
+  'Travel insurance (recommended)',
+  'Tips and personal expenses',
+  'Meals in Srinagar/Sonamarg',
+  'Any personal activities or expenses',
+];
+
+export const KASHMIR_GREAT_LAKES_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Rohan Kapoor',
+    location: 'Mumbai',
+    rating: 5,
+    text: 'Trek through paradise! Each lake is more beautiful than the last. Absolutely magical experience. Highly recommended!',
+    avatar: 'RK',
+    date: 'Aug 2024',
+  },
+  {
+    name: 'Anita Menon',
+    location: 'Chennai',
+    rating: 5,
+    text: 'Most stunning trek ever! The lakes are pristine and reflections of peaks are breathtaking. Worth every step!',
+    avatar: 'AM',
+    date: 'Jul 2024',
+  },
+  {
+    name: 'Arjun Deshmukh',
+    location: 'Pune',
+    rating: 5,
+    text: 'Paradise on earth! Challenging but incredibly rewarding. Every moment was precious. Will definitely repeat!',
+    avatar: 'AD',
+    date: 'Sep 2024',
+  },
+];
+
+export const KASHMIR_GREAT_LAKES_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1469022563149-aa64dbd37dba?w=1200&h=600&fit=crop',
+];
+
+// ============================================
+// SAR PASS TREK DATA
+// ============================================
+export const SAR_PASS_TREK: TrekDetail = {
+  name: 'Sar Pass Trek',
+  tagline:
+    'High-altitude pass trek with glacial views and panoramic Himalayan scenery.',
+  description:
+    'The Sar Pass Trek is a popular high-altitude trek in Himachal Pradesh known for its stunning glacial scenery and panoramic views. The trek crosses the Sar Pass at over 4,000 meters and offers spectacular views of surrounding peaks. This trek is ideal for experienced trekkers seeking high-altitude adventure.',
+  difficulty: 'Hard',
+  duration: '5 Days / 4 Nights',
+  distance: '40 km',
+  altitude: '4,150 m',
+  price: '₹8,399',
+  location: 'Himachal Pradesh',
+  bestSeason: 'Jul–Sep',
+  rating: 4.6,
+  reviews: 301,
+};
+
+export const SAR_PASS_ITINERARY: ItineraryDay[] = [
+  {
+    day: 1,
+    title: 'Kasol to Base Camp',
+    altitude: '2,000 m',
+    distance: '40 km drive + 4 km trek',
+    desc: 'Drive to Kasol and short trek to base camp.',
+  },
+  {
+    day: 2,
+    title: 'Base to High Camp 1',
+    altitude: '3,200 m',
+    distance: '10 km',
+    desc: 'Trek through alpine scenery.',
+  },
+  {
+    day: 3,
+    title: 'High Camp 1 to Sar Pass',
+    altitude: '4,150 m',
+    distance: '10 km',
+    desc: 'Cross the high pass with glacier views.',
+  },
+  {
+    day: 4,
+    title: 'Sar Pass to High Camp 2',
+    altitude: '3,400 m',
+    distance: '10 km',
+    desc: 'Trek on glacier and descend.',
+  },
+  {
+    day: 5,
+    title: 'Return to Base',
+    altitude: '2,000 m',
+    distance: '10 km trek + drive',
+    desc: 'Trek down and return to Kasol.',
+  },
+];
+
+export const SAR_PASS_INCLUSIONS: string[] = [
+  'All meals during the trek',
+  'High-altitude camping equipment',
+  'Trek leader & guide',
+  'First aid & medical support',
+];
+
+export const SAR_PASS_EXCLUSIONS: string[] = [
+  'Travel to and from Kasol',
+  'Personal gear & clothing',
+  'Tips and personal expenses',
+];
+
+export const SAR_PASS_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Sanjay Verma',
+    location: 'Delhi',
+    rating: 5,
+    text: 'Epic glacial trek! The pass crossing was thrilling. Stunning alpine scenery throughout!',
+    avatar: 'SV',
+    date: 'Aug 2024',
+  },
+];
+
+export const SAR_PASS_GALLERY: string[] = [
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&h=600&fit=crop',
+];
+
+// ============================================
 // TREK COMPLETE DATA MAPPING
 // ============================================
 export interface TrekCompleteData {
@@ -691,6 +2203,126 @@ export const TREK_DETAILS_MAP: Record<string, TrekCompleteData> = {
     exclusions: HAMPTA_PASS_EXCLUSIONS,
     testimonials: HAMPTA_PASS_TESTIMONIALS,
     gallery: HAMPTA_PASS_GALLERY,
+  },
+  ballipass: {
+    trek: BALLI_PASS_TREK,
+    itinerary: BALLI_PASS_ITINERARY,
+    inclusions: BALLI_PASS_INCLUSIONS,
+    exclusions: BALLI_PASS_EXCLUSIONS,
+    testimonials: BALLI_PASS_TESTIMONIALS,
+    gallery: BALLI_PASS_GALLERY,
+  },
+  lekhattop: {
+    trek: LEKHA_TOP_TREK,
+    itinerary: LEKHA_TOP_ITINERARY,
+    inclusions: LEKHA_TOP_INCLUSIONS,
+    exclusions: LEKHA_TOP_EXCLUSIONS,
+    testimonials: LEKHA_TOP_TESTIMONIALS,
+    gallery: LEKHA_TOP_GALLERY,
+  },
+  devkayarabhugya: {
+    trek: DEVKAYARA_BHUGYA_TREK,
+    itinerary: DEVKAYARA_BHUGYA_ITINERARY,
+    inclusions: DEVKAYARA_BHUGYA_INCLUSIONS,
+    exclusions: DEVKAYARA_BHUGYA_EXCLUSIONS,
+    testimonials: DEVKAYARA_BHUGYA_TESTIMONIALS,
+    gallery: DEVKAYARA_BHUGYA_GALLERY,
+  },
+  bharadsartrek: {
+    trek: BHARADSAR_TREK,
+    itinerary: BHARADSAR_ITINERARY,
+    inclusions: BHARADSAR_INCLUSIONS,
+    exclusions: BHARADSAR_EXCLUSIONS,
+    testimonials: BHARADSAR_TESTIMONIALS,
+    gallery: BHARADSAR_GALLERY,
+  },
+  vijaytop: {
+    trek: VIJAY_TOP_TREK,
+    itinerary: VIJAY_TOP_ITINERARY,
+    inclusions: VIJAY_TOP_INCLUSIONS,
+    exclusions: VIJAY_TOP_EXCLUSIONS,
+    testimonials: VIJAY_TOP_TESTIMONIALS,
+    gallery: VIJAY_TOP_GALLERY,
+  },
+  dhokatop: {
+    trek: DHOKA_TOP_TREK,
+    itinerary: DHOKA_TOP_ITINERARY,
+    inclusions: DHOKA_TOP_INCLUSIONS,
+    exclusions: DHOKA_TOP_EXCLUSIONS,
+    testimonials: DHOKA_TOP_TESTIMONIALS,
+    gallery: DHOKA_TOP_GALLERY,
+  },
+  gomukhтapovan: {
+    trek: GOMUKH_TAPOVAN_TREK,
+    itinerary: GOMUKH_TAPOVAN_ITINERARY,
+    inclusions: GOMUKH_TAPOVAN_INCLUSIONS,
+    exclusions: GOMUKH_TAPOVAN_EXCLUSIONS,
+    testimonials: GOMUKH_TAPOVAN_TESTIMONIALS,
+    gallery: GOMUKH_TAPOVAN_GALLERY,
+  },
+  borasupass: {
+    trek: BORASU_PASS_TREK,
+    itinerary: BORASU_PASS_ITINERARY,
+    inclusions: BORASU_PASS_INCLUSIONS,
+    exclusions: BORASU_PASS_EXCLUSIONS,
+    testimonials: BORASU_PASS_TESTIMONIALS,
+    gallery: BORASU_PASS_GALLERY,
+  },
+  phulararidge: {
+    trek: PHULARA_RIDGE_TREK,
+    itinerary: PHULARA_RIDGE_ITINERARY,
+    inclusions: PHULARA_RIDGE_INCLUSIONS,
+    exclusions: PHULARA_RIDGE_EXCLUSIONS,
+    testimonials: PHULARA_RIDGE_TESTIMONIALS,
+    gallery: PHULARA_RIDGE_GALLERY,
+  },
+  sarutak: {
+    trek: SARU_TAK_TREK,
+    itinerary: SARU_TAK_ITINERARY,
+    inclusions: SARU_TAK_INCLUSIONS,
+    exclusions: SARU_TAK_EXCLUSIONS,
+    testimonials: SARU_TAK_TESTIMONIALS,
+    gallery: SARU_TAK_GALLERY,
+  },
+  chotachandarshila: {
+    trek: CHOTA_CHANDARSHILA_TREK,
+    itinerary: CHOTA_CHANDARSHILA_ITINERARY,
+    inclusions: CHOTA_CHANDARSHILA_INCLUSIONS,
+    exclusions: CHOTA_CHANDARSHILA_EXCLUSIONS,
+    testimonials: CHOTA_CHANDARSHILA_TESTIMONIALS,
+    gallery: CHOTA_CHANDARSHILA_GALLERY,
+  },
+  nagtibba: {
+    trek: NAG_TIBBA_TREK,
+    itinerary: NAG_TIBBA_ITINERARY,
+    inclusions: NAG_TIBBA_INCLUSIONS,
+    exclusions: NAG_TIBBA_EXCLUSIONS,
+    testimonials: NAG_TIBBA_TESTIMONIALS,
+    gallery: NAG_TIBBA_GALLERY,
+  },
+  kuaripass: {
+    trek: KUARI_PASS_TREK,
+    itinerary: KUARI_PASS_ITINERARY,
+    inclusions: KUARI_PASS_INCLUSIONS,
+    exclusions: KUARI_PASS_EXCLUSIONS,
+    testimonials: KUARI_PASS_TESTIMONIALS,
+    gallery: KUARI_PASS_GALLERY,
+  },
+  kashmirgreaklakes: {
+    trek: KASHMIR_GREAT_LAKES_TREK,
+    itinerary: KASHMIR_GREAT_LAKES_ITINERARY,
+    inclusions: KASHMIR_GREAT_LAKES_INCLUSIONS,
+    exclusions: KASHMIR_GREAT_LAKES_EXCLUSIONS,
+    testimonials: KASHMIR_GREAT_LAKES_TESTIMONIALS,
+    gallery: KASHMIR_GREAT_LAKES_GALLERY,
+  },
+  sarpass: {
+    trek: SAR_PASS_TREK,
+    itinerary: SAR_PASS_ITINERARY,
+    inclusions: SAR_PASS_INCLUSIONS,
+    exclusions: SAR_PASS_EXCLUSIONS,
+    testimonials: SAR_PASS_TESTIMONIALS,
+    gallery: SAR_PASS_GALLERY,
   },
 };
 

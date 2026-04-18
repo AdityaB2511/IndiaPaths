@@ -204,7 +204,7 @@ export default function TrekDetails() {
       </header>
 
       {/* Quick Stats */}
-      <section className="relative z-10 -mt-16 max-w-6xl mx-auto px-4 sm:px-6 mb-16">
+      <section className="relative z-10  max-w-6xl mx-auto px-4 sm:px-6 mb-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="stat-card bg-white rounded-2xl p-5 text-center animate-in delay-1 card-hover">
             <div className="w-10 h-10 rounded-full bg-forest-700/10 flex items-center justify-center mx-auto mb-3">
