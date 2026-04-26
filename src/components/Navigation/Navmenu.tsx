@@ -44,18 +44,23 @@ export default function Navmenu() {
               >
                 Treks
               </a>
-              <a
-                href="#wfh"
-                className="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
-              >
-                Work Retreats
-              </a>
-              <a
-                href="#homestays"
-                className="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
-              >
-                Homestays
-              </a>
+              {import.meta.env.VITE_SHOW_HOMESTAYS === "true" && (
+                <a
+                  href="#homestays"
+                  className="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
+                >
+                  Homestays
+                </a>
+              )}
+              {import.meta.env.VITE_SHOW_WORK_RETIREATS === "true" && (
+                <a
+                  href="#work-retireats"
+                  className="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
+                >
+                  Work Retreats
+                </a>
+              )}
+
               <a
                 href="#cta"
                 id="nav-cta-btn"
@@ -78,7 +83,6 @@ export default function Navmenu() {
           </div>
         </div>
       </nav>
-     
     </>
   );
 }

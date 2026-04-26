@@ -487,7 +487,7 @@ Please share itinerary, pricing, available dates, and booking process.`;
       {/* Inclusions / Exclusions */}
       <section className="bg-white py-16 mb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <h2 className="font-display text-3xl font-bold mb-8 text-center">
+          <h2 className="font-display text-3xl font-bold mb-8 text-center bg-black">
             What's Included
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
