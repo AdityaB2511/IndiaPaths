@@ -146,9 +146,10 @@ export default function TrekDetails() {
     }
   };
 
-  const handleCTA = () => {
+  const EnquireNowClick = (trekName: string) => {
     const phoneNumber = import.meta.env.VITE_MOBILE_NUMBER;
-    const message = "Hello, I have a question!";
+    const message = `Hi! I'm planning to join the ${trekName} trek. 
+Please share itinerary, pricing, available dates, and booking process.`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
@@ -653,7 +654,7 @@ export default function TrekDetails() {
             </p>
           </div>
           <button
-            onClick={handleCTA}
+            onClick={() => EnquireNowClick(trekData.trek.name)}
             className="cta-btn font-semibold text-white px-8 py-3.5 rounded-full text-base btn-hover"
             style={{
               background: "linear-gradient(135deg, #2d4a2d, #4a7c4a)",
