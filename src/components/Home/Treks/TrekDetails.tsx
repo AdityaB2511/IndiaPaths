@@ -29,6 +29,7 @@ import {
   getTrekDetailsByName,
   type TrekCompleteData,
 } from "../../../utils/constants";
+import { EnquireNowClick } from "../../../utility";
 
 export default function TrekDetails() {
   const [searchParams] = useSearchParams();
@@ -146,13 +147,7 @@ export default function TrekDetails() {
     }
   };
 
-  const EnquireNowClick = (trekName: string) => {
-    const phoneNumber = import.meta.env.VITE_MOBILE_NUMBER;
-    const message = `Hi! I'm planning to join the ${trekName} trek. 
-Please share itinerary, pricing, available dates, and booking process.`;
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  };
+  
 
   // Handle loading state
   if (loading) {

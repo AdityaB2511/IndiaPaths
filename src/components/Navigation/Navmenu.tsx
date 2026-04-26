@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { EnquireNowClick } from "../../utility";
 
 export default function Navmenu() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -66,6 +67,7 @@ export default function Navmenu() {
                 id="nav-cta-btn"
                 className="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
                 style={{ background: "#d4a855", color: "#0f2027" }}
+                onClick={() => EnquireNowClick()}
               >
                 Enquire Now
               </a>
