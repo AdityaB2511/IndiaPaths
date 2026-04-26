@@ -29,7 +29,6 @@ import {
   getTrekDetailsByName,
   type TrekCompleteData,
 } from "../../../utils/constants";
-const VITE_MOBILE_NUMBER = import.meta.env.VITE_MOBILE_NUMBER;
 
 export default function TrekDetails() {
   const [searchParams] = useSearchParams();
