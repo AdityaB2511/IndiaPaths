@@ -62,7 +62,7 @@ export default function Navmenu() {
                 className="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
                 style={{ background: "#d4a855", color: "#0f2027" }}
               >
-                Book Now
+                Enquire Now
               </a>
             </div>
             <button

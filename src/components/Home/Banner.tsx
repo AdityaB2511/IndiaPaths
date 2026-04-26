@@ -36,12 +36,6 @@ export default function Banner() {
           >
             Explore Treks
           </a>
-          <a
-            href="#wfh"
-            className="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide border-2 border-white/30 text-white hover:border-white/60 transition-all duration-300"
-          >
-            View All Services
-          </a>
         </div>
       </div>
       <div className="mountain-silhouette">
