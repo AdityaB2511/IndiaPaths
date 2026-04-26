@@ -29,7 +29,7 @@ import {
   getTrekDetailsByName,
   type TrekCompleteData,
 } from "../../../utils/constants";
-const MobileNumber = import.meta.env.MOBILE_NUMBER;
+const VITE_MOBILE_NUMBER = import.meta.env.VITE_MOBILE_NUMBER;
 
 export default function TrekDetails() {
   const [searchParams] = useSearchParams();
@@ -148,7 +148,7 @@ export default function TrekDetails() {
   };
 
   const handleCTA = () => {
-    const phoneNumber = MobileNumber.replace("+", "").replace("00", "");
+    const phoneNumber = import.meta.env.VITE_MOBILE_NUMBER;
     const message = "Hello, I have a question!";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
