@@ -29,6 +29,7 @@ import {
   getTrekDetailsByName,
   type TrekCompleteData,
 } from "../../../utils/constants";
+import { EnquireNowClick } from "../../../utility";
 
 export default function TrekDetails() {
   const [searchParams] = useSearchParams();
@@ -146,12 +147,7 @@ export default function TrekDetails() {
     }
   };
 
-  const handleCTA = () => {
-    const phoneNumber = import.meta.env.VITE_MOBILE_NUMBER;
-    const message = "Hello, I have a question!";
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  };
+  
 
   // Handle loading state
   if (loading) {
@@ -486,7 +482,7 @@ export default function TrekDetails() {
       {/* Inclusions / Exclusions */}
       <section className="bg-white py-16 mb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <h2 className="font-display text-3xl font-bold mb-8 text-center">
+          <h2 className="font-display text-3xl font-bold mb-8 text-center bg-black">
             What's Included
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -653,7 +649,7 @@ export default function TrekDetails() {
             </p>
           </div>
           <button
-            onClick={handleCTA}
+            onClick={() => EnquireNowClick(trekData.trek.name)}
             className="cta-btn font-semibold text-white px-8 py-3.5 rounded-full text-base btn-hover"
             style={{
               background: "linear-gradient(135deg, #2d4a2d, #4a7c4a)",

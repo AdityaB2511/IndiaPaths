@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { EnquireNowClick } from "../../utility";
 
 export default function Navmenu() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,23 +45,29 @@ export default function Navmenu() {
               >
                 Treks
               </a>
-              <a
-                href="#wfh"
-                className="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
-              >
-                Work Retreats
-              </a>
-              <a
-                href="#homestays"
-                className="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
-              >
-                Homestays
-              </a>
+              {import.meta.env.VITE_SHOW_HOMESTAYS === "true" && (
+                <a
+                  href="#homestays"
+                  className="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
+                >
+                  Homestays
+                </a>
+              )}
+              {import.meta.env.VITE_SHOW_WORK_RETIREATS === "true" && (
+                <a
+                  href="#work-retireats"
+                  className="nav-link text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors"
+                >
+                  Work Retreats
+                </a>
+              )}
+
               <a
                 href="#cta"
                 id="nav-cta-btn"
                 className="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
                 style={{ background: "#d4a855", color: "#0f2027" }}
+                onClick={() => EnquireNowClick()}
               >
                 Enquire Now
               </a>
@@ -78,7 +85,6 @@ export default function Navmenu() {
           </div>
         </div>
       </nav>
-     
     </>
   );
 }
